@@ -9,7 +9,7 @@ Copyright(C)537 Studio.2024.All rights reserved.
 
 //EGE¿âAPIÎÄµµ£ºhttps://xege.org/manual/api/index.htm
 
-#include "537DM.h"
+#include "537UDM.h"
 #include "include/main_window.h"
 int main(){
 	initgraph(WINDOW_MAIN_SIZE_WIDTH,WINDOW_MAIN_SIZE_HEIGHT,0);

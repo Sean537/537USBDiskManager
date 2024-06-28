@@ -6,10 +6,10 @@ main_window.h
 
 Copyright(C)537 Studio.2024.All rights reserved.
 */
-#include "graphics.h" 
-struct{
-	HWND hwnd;//=getHWnd();
-	HINSTANCE hinstance;//=getHInstance();
-	HWND hdc;//=getHDC();
+
+struct WindowInfo{
+	HWND hwnd;//窗口句柄 
+	HINSTANCE hinstance;//主进程实例句柄
+	HWND hdc;//图形设备上下文句柄
 }mainwindow;
 

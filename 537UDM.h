@@ -2,13 +2,13 @@
 537 USB Disk Manager
 Version 1.0 Beta
 
-537DM.h
+537UDM.h
 
 Copyright(C)537 Studio.2024.All rights reserved.
 */
 
 #define APP_NAME_L "537 USB Disk Manager"
-#define APP_NAME_S "537DM"
+#define APP_NAME_S "537UDM"
 
 #define APP_VERSION 1.0
 
@@ -16,3 +16,5 @@ Copyright(C)537 Studio.2024.All rights reserved.
 
 #define WINDOW_MAIN_SIZE_WIDTH 400
 #define WINDOW_MAIN_SIZE_HEIGHT 600
+
+#include "graphics.h" 
