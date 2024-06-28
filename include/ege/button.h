@@ -22,17 +22,17 @@
 #endif
 
 /**
- * @brief æŒ‰é’®æ§ä»¶
+ * @brief °´Å¥¿Ø¼ş
  */
 class button : public egeControlBase
 {
     public:
         //overrides
-        // å±å¹•æ›´æ–°åä¼šè¢«è°ƒç”¨ï¼Œç”¨äºæ›´æ–°é€»è¾‘
-        // ä»¥ä¸‹è™šå‡½æ•°éƒ½ä¸è¦ç›´æ¥ç›¸äº’è°ƒç”¨
-        // ä»¥ä¸‹å‡½æ•°å¦‚æœè¿”å›é0åˆ™ä¸å‘å­æ§ä»¶ä¼ é€’é”®ç›˜é¼ æ ‡æ¶ˆæ¯
+        // ÆÁÄ»¸üĞÂºó»á±»µ÷ÓÃ£¬ÓÃÓÚ¸üĞÂÂß¼­
+        // ÒÔÏÂĞéº¯Êı¶¼²»ÒªÖ±½ÓÏà»¥µ÷ÓÃ
+        // ÒÔÏÂº¯ÊıÈç¹û·µ»Ø·Ç0Ôò²»Ïò×Ó¿Ø¼ş´«µİ¼üÅÌÊó±êÏûÏ¢
         /**
-         * @brief å“åº”ç©ºæ ¼ä¸å›è½¦çš„æŒ‰ä¸‹
+         * @brief ÏìÓ¦¿Õ¸ñÓë»Ø³µµÄ°´ÏÂ
          *
          * @param key
          * @param flag
@@ -47,7 +47,7 @@ class button : public egeControlBase
             return 0; 
         }
         /**
-         * @brief å“åº”ç©ºæ ¼ä¸å›è½¦çš„å¼¹èµ·
+         * @brief ÏìÓ¦¿Õ¸ñÓë»Ø³µµÄµ¯Æğ
          *
          * @param key
          * @param flag
@@ -70,7 +70,7 @@ class button : public egeControlBase
         }
 
         /**
-         * @brief å“åº”é¼ æ ‡å·¦é”®ç‚¹å‡»
+         * @brief ÏìÓ¦Êó±ê×ó¼üµã»÷
          *
          * @param x
          * @param y
@@ -100,7 +100,7 @@ class button : public egeControlBase
             return 0; 
         }
         /**
-         * @brief å±å¹•æ›´æ–°åä¼šè¢«è°ƒç”¨ï¼Œç”¨äºæ›´æ–°é€»è¾‘
+         * @brief ÆÁÄ»¸üĞÂºó»á±»µ÷ÓÃ£¬ÓÃÓÚ¸üĞÂÂß¼­
          *
          * @return 0
          */
@@ -108,7 +108,7 @@ class button : public egeControlBase
             return 0;
         }
         /**
-         * @brief åœ¨è¦è·å¾—ç„¦ç‚¹æ—¶è°ƒç”¨ï¼Œè¿”å›å€¼ä¸€èˆ¬è¿”å›0è¡¨ç¤ºè·å–é”®ç›˜è¾“å…¥ç„¦ç‚¹ï¼Œè¿”å›é0æ”¾å¼ƒè·å¾—è¾“å…¥ç„¦ç‚¹
+         * @brief ÔÚÒª»ñµÃ½¹µãÊ±µ÷ÓÃ£¬·µ»ØÖµÒ»°ã·µ»Ø0±íÊ¾»ñÈ¡¼üÅÌÊäÈë½¹µã£¬·µ»Ø·Ç0·ÅÆú»ñµÃÊäÈë½¹µã
          *
          * @return 0
          */
@@ -116,32 +116,32 @@ class button : public egeControlBase
             return 0;
         }
         /**
-         * @brief å¤±å»è¾“å…¥ç„¦ç‚¹æ—¶è°ƒç”¨
+         * @brief Ê§È¥ÊäÈë½¹µãÊ±µ÷ÓÃ
          */
         virtual void onLostFocus() {
             _pushed=false;
             redraw();
         }
-        // è®¾ç½®å°ºå¯¸å‰è°ƒç”¨ï¼Œè‡ªå®šä¹‰ä¿®æ­£å‡½æ•°
+        // ÉèÖÃ³ß´çÇ°µ÷ÓÃ£¬×Ô¶¨ÒåĞŞÕıº¯Êı
         virtual void onSizing(int *w, int *h) {
             //egeControlBase::onSizing(w,h);
         }
-        // å“åº”å°ºå¯¸å˜åŒ–å‡½æ•°
+        // ÏìÓ¦³ß´ç±ä»¯º¯Êı
         virtual void onSize(int w, int h) {
             //egeControlBase::onSize(w,h);
             updatesidewidth();
             redraw();
         }
-        // é‡ç»˜å‡½æ•°ï¼Œå°½é‡è¯·ç”»åˆ°pimgä¸Šï¼Œä»¥ä¾¿èƒ½æ§åˆ¶ç»˜ç”»ç›®æ ‡
+        // ÖØ»æº¯Êı£¬¾¡Á¿Çë»­µ½pimgÉÏ£¬ÒÔ±ãÄÜ¿ØÖÆ»æ»­Ä¿±ê
         virtual void onDraw(PIMAGE pimg) const {
         }
-        // å°ºå¯¸å˜åŒ–æ—¶è°ƒç”¨ï¼Œç”¨äºé‡ç”»è¿‡æ»¤ç¼“å†²åŒºå†…å®¹
+        // ³ß´ç±ä»¯Ê±µ÷ÓÃ£¬ÓÃÓÚÖØ»­¹ıÂË»º³åÇøÄÚÈİ
         virtual void onResetFilter() {
         }
         //virtual void onAddChild(egeControlBase* pChild) {}
         //virtual void onDelChild(egeControlBase* pChild) {}
-        //virtual void onIdle() {} // ä¿ç•™æ¥å£ï¼Œæœªç”¨
-        // è¿™é‡Œä»¥ä¸Šçš„å‡½æ•°å¯ä»¥è‡ªè¡Œå®šä¹‰ï¼ˆæ³¨æ„å£°æ˜è¦ä¸€è‡´ï¼Œä¸è¦æ¼æ‰OnDrawé‡Œçš„constï¼‰
+        //virtual void onIdle() {} // ±£Áô½Ó¿Ú£¬Î´ÓÃ
+        // ÕâÀïÒÔÉÏµÄº¯Êı¿ÉÒÔ×ÔĞĞ¶¨Òå£¨×¢ÒâÉùÃ÷ÒªÒ»ÖÂ£¬²»ÒªÂ©µôOnDrawÀïµÄconst£©
         //init
         CTL_PREINIT(button, egeControlBase) {
             // do sth. before sub objects' construct function call
@@ -150,7 +150,7 @@ class button : public egeControlBase
             CTL_INIT; // must be the first line
             size(64, 32);
             _font_height = 12;
-            strcpy(_face, "å®‹ä½“");
+            strcpy(_face, "ËÎÌå");
             _line_color=BLACK;
             _bg_color=RGB(100,100,100);
             _text_color=BLACK;
@@ -169,12 +169,12 @@ class button : public egeControlBase
         }
         //member functions
         /**
-         * @brief åœ¨å›è°ƒå‡½æ•°æŒ‡é’ˆä¸ºNULLæˆ–å›è°ƒå‡½æ•°è¿”å›0æ—¶è¢«è°ƒç”¨
+         * @brief ÔÚ»Øµ÷º¯ÊıÖ¸ÕëÎªNULL»ò»Øµ÷º¯Êı·µ»Ø0Ê±±»µ÷ÓÃ
          */
         virtual void onClick(){
         }
         /**
-         * @brief é‡ç»˜æ§ä»¶
+         * @brief ÖØ»æ¿Ø¼ş
          */
         virtual void redraw() const {
             PushTarget targer(buf());
@@ -227,7 +227,7 @@ class button : public egeControlBase
         }
         //attributes
         /**
-         * @brief è®¾ç½®alphaå€¼
+         * @brief ÉèÖÃalphaÖµ
          *
          * @param alpha 0x00 - 0xff
          */
@@ -247,7 +247,7 @@ class button : public egeControlBase
 
         }
         /**
-         * @brief è¿”å›alphaå€¼
+         * @brief ·µ»ØalphaÖµ
          *
          * @return alpha
          */
@@ -255,27 +255,27 @@ class button : public egeControlBase
             return _alpha;
         }
         /**
-         * @brief è®¾ç½®èƒŒæ™¯è‰²
+         * @brief ÉèÖÃ±³¾°É«
          *
-         * @param color èƒŒæ™¯è‰²
+         * @param color ±³¾°É«
          */
         void bgcolor(COLORREF color){
             _bg_color=color;
             redraw();
         }
         /**
-         * @brief è¿”å›èƒŒæ™¯è‰²
+         * @brief ·µ»Ø±³¾°É«
          *
-         * @return èƒŒæ™¯è‰²
+         * @return ±³¾°É«
          */
         COLORREF bgcolor() const{
             return _bg_color;
         }
         /**
-         * @brief è®¾ç½®æŒ‰é’®ç‚¹å‡»å›è°ƒå‡½æ•°
+         * @brief ÉèÖÃ°´Å¥µã»÷»Øµ÷º¯Êı
          *
-         * @param fun å›è°ƒå‡½æ•°æŒ‡é’ˆï¼Œå½“ä¸”ä»…å½“è¿”å›å€¼ä¸º0æ—¶ä¼šè‡ªåŠ¨è°ƒç”¨onClick
-         * @param param é™„åŠ å‚æ•°ï¼Œå°†ä¼šåŸæ ·ä¼ é€’ç»™å›è°ƒå‡½æ•°
+         * @param fun »Øµ÷º¯ÊıÖ¸Õë£¬µ±ÇÒ½öµ±·µ»ØÖµÎª0Ê±»á×Ô¶¯µ÷ÓÃonClick
+         * @param param ¸½¼Ó²ÎÊı£¬½«»áÔ­Ñù´«µİ¸ø»Øµ÷º¯Êı
          */
         void callback(int (*fun)(void*),void* param){
             callback_param=param;
@@ -283,52 +283,52 @@ class button : public egeControlBase
             redraw();
         }
         /**
-         * @brief è¿”å›å›è°ƒå‡½æ•°æŒ‡é’ˆ
+         * @brief ·µ»Ø»Øµ÷º¯ÊıÖ¸Õë
          *
-         * @return å›è°ƒå‡½æ•°æŒ‡é’ˆï¼›è‹¥æœªè®¾ç½®ï¼Œè¿”å›NULL
+         * @return »Øµ÷º¯ÊıÖ¸Õë£»ÈôÎ´ÉèÖÃ£¬·µ»ØNULL
          */
         template <typename T>
             T callback() const{
                 return _on_click;
             }
         /**
-         * @brief è®¾ç½®æ–‡æœ¬
+         * @brief ÉèÖÃÎÄ±¾
          *
-         * @param text æ–‡æœ¬
+         * @param text ÎÄ±¾
          */
         void caption(const char* text) {
             strcpy(_caption, text);
             redraw();
         }
         /**
-         * @brief è¿”å›æ–‡æœ¬
+         * @brief ·µ»ØÎÄ±¾
          *
-         * @return æ–‡æœ¬
+         * @return ÎÄ±¾
          */
         const char* caption() const{
             return _caption;
             //redraw();
         }
         /**
-         * @brief è®¾ç½®å­—ä½“
+         * @brief ÉèÖÃ×ÖÌå
          *
-         * @param fontface å­—ä½“å
+         * @param fontface ×ÖÌåÃû
          */
         void font(const char* fontface) {
             strcpy(_face, fontface);
             redraw();
         }
         /**
-         * @brief è¿”å›å­—ä½“
+         * @brief ·µ»Ø×ÖÌå
          *
-         * @return å­—ä½“å
+         * @return ×ÖÌåÃû
          */
         const char* font() const{
             return _face;
             //redraw();
         }
         /**
-         * @brief è®¾ç½®å­—ä½“å°ºå¯¸ï¼Œå¾…ç»­
+         * @brief ÉèÖÃ×ÖÌå³ß´ç£¬´ıĞø
          *
          * @param height
          */
@@ -337,33 +337,33 @@ class button : public egeControlBase
             redraw();
         }
         /**
-         * @brief è¿”å›å­—ä½“å°ºå¯¸
+         * @brief ·µ»Ø×ÖÌå³ß´ç
          *
-         * @return å­—ä½“å°ºå¯¸
+         * @return ×ÖÌå³ß´ç
          */
         int fontsize() const{
             return _font_height;
         }
         /**
-         * @brief è®¾ç½®æŒ‰é’®çš„çº¿æ¡é¢œè‰²
+         * @brief ÉèÖÃ°´Å¥µÄÏßÌõÑÕÉ«
          *
-         * @param color é¢œè‰²
+         * @param color ÑÕÉ«
          */
         void linecolor(COLORREF color){
             _line_color=color;
             redraw();
         }
         /**
-         * @brief è¿”å›æŒ‰é’®çº¿æ¡é¢œè‰²
+         * @brief ·µ»Ø°´Å¥ÏßÌõÑÕÉ«
          *
-         * @return çº¿æ¡é¢œè‰²
+         * @return ÏßÌõÑÕÉ«
          */
         COLORREF linecolor() const{
             return _line_color;
         }
 #ifdef DEBUG
         /**
-         * @brief è®¾ç½®è°ƒè¯•ä¿¡æ¯å‡ºå£
+         * @brief ÉèÖÃµ÷ÊÔĞÅÏ¢³ö¿Ú
          *
          * @param logger
          */
@@ -371,7 +371,7 @@ class button : public egeControlBase
             _logger=logger;
         }
         /**
-         * @brief è¿”å›è°ƒè¯•ä¿¡æ¯å‡ºå£
+         * @brief ·µ»Øµ÷ÊÔĞÅÏ¢³ö¿Ú
          *
          * @return 
          */
@@ -380,51 +380,51 @@ class button : public egeControlBase
         }
 #endif
         /**
-         * @brief è®¾ç½®é˜´å½±é¢œè‰²
+         * @brief ÉèÖÃÒõÓ°ÑÕÉ«
          *
-         * @param color é˜´å½±é¢œè‰²
+         * @param color ÒõÓ°ÑÕÉ«
          */
         void shadowcolor(COLORREF color){
             _shadow_color=color;
             redraw();
         }
         /**
-         * @brief è¿”å›é˜´å½±é¢œè‰²
+         * @brief ·µ»ØÒõÓ°ÑÕÉ«
          *
-         * @return é˜´å½±é¢œè‰²
+         * @return ÒõÓ°ÑÕÉ«
          */
         COLORREF shadowcolor() const{
             return _shadow_color;
         }
         /**
-         * @brief è®¾ç½®æ–‡æœ¬é¢œè‰²
+         * @brief ÉèÖÃÎÄ±¾ÑÕÉ«
          *
-         * @param color æ–‡æœ¬é¢œè‰²
+         * @param color ÎÄ±¾ÑÕÉ«
          */
         void textcolor(COLORREF color){
             _text_color=color;
             redraw();
         }
         /**
-         * @brief è¿”å›æ–‡æœ¬é¢œè‰²
+         * @brief ·µ»ØÎÄ±¾ÑÕÉ«
          *
-         * @return æ–‡æœ¬é¢œè‰²
+         * @return ÎÄ±¾ÑÕÉ«
          */
         COLORREF textcolor() const{
             return _text_color;
         }
     protected:
         /**
-         * @brief ä¿®æ­£è¾¹çš„å®½åº¦
+         * @brief ĞŞÕı±ßµÄ¿í¶È
          */
         void updatesidewidth(){
             _side_width=std::min(geth(),getw())*0.2;
         }
 #ifdef DEBUG
         /**
-         * @brief è¾“å‡ºè°ƒè¯•ä¿¡æ¯
+         * @brief Êä³öµ÷ÊÔĞÅÏ¢
          *
-         * @param msg è°ƒè¯•ä¿¡æ¯æ–‡æœ¬
+         * @param msg µ÷ÊÔĞÅÏ¢ÎÄ±¾
          */
         void logout(const char* msg){
             if(_logger){
@@ -450,3 +450,4 @@ class button : public egeControlBase
 };
 
 #endif /* _EGE_BUTTON_H_ */
+
