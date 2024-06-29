@@ -21,7 +21,8 @@ IDI_ICON_537UDM        ICON    DISCARDABLE     "resource/537UDM.ico"
 IDI_ICON_537LOGO       ICON    DISCARDABLE     "resource/537logo.ico"  
   
 // 位图资源  
-BITMAP_537LOGO          BITMAP    DISCARDABLE     "resource/537logo.png"  
+BITMAP_537LOGO          BITMAP    DISCARDABLE     "resource/537logo.png" 
+BITMAP_WARNING			BITMAP    DISCARDABLE	  "resource/warning.png" 
   
 // 对话框资源  
 /*
