@@ -3,6 +3,7 @@
 
 #include <windows.h> // include for version info constants
 
+#include "resource.rc"
 
 A ICON "537 USB Disk Manager.ico"
 

@@ -28,6 +28,6 @@ $(BIN): $(OBJ)
 537main.o: 537main.cpp
 	$(CPP) -c 537main.cpp -o 537main.o $(CXXFLAGS)
 
-537_USB_Disk_Manager_private.res: 537_USB_Disk_Manager_private.rc 
+537_USB_Disk_Manager_private.res: 537_USB_Disk_Manager_private.rc resource.rc
 	$(WINDRES) -i 537_USB_Disk_Manager_private.rc --input-format=rc -o 537_USB_Disk_Manager_private.res -O coff 
 
