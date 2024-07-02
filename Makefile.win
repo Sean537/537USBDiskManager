@@ -7,7 +7,7 @@ WINDRES  = windres.exe
 RES      = 537_USB_Disk_Manager_private.res
 OBJ      = 537main.o $(RES)
 LINKOBJ  = 537main.o $(RES)
-LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib" -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc -L"G:/537USBDiskManager/lib" -mwindows -lgraphics64  -lgdiplus -luuid -lmsimg32 -lgdi32 -limm32 -lole32 -loleaut32 -lwinmm
+LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib" -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc -L"./lib" -mwindows -lgraphics64  -lgdiplus -luuid -lmsimg32 -lgdi32 -limm32 -lole32 -loleaut32 -lwinmm
 INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
 CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
 BIN      = "537 USB Disk Manager.exe"
@@ -29,5 +29,5 @@ $(BIN): $(OBJ)
 	$(CPP) -c 537main.cpp -o 537main.o $(CXXFLAGS)
 
 537_USB_Disk_Manager_private.res: 537_USB_Disk_Manager_private.rc resource.rc
-	$(WINDRES) -i 537_USB_Disk_Manager_private.rc --input-format=rc -o 537_USB_Disk_Manager_private.res -O coff 
+	$(WINDRES) -i 537_USB_Disk_Manager_private.rc --input-format=rc -o 537_USB_Disk_Manager_private.res -O coff  --include-dir ./resource
 
