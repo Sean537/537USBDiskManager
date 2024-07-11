@@ -17,6 +17,12 @@ Copyright(C)537 Studio.2024.All rights reserved.
 #define WINDOW_MAIN_SIZE_WIDTH 400
 #define WINDOW_MAIN_SIZE_HEIGHT 600
 
+char DriveLetter[3]={0};  
+char VolumeName[MAX_PATH]={0};  
+char FileSystemName[MAX_PATH]={0};  
+char TotalSpaceStr[256]={0};  
+char FreeSpaceStr[256]={0}; 
+
 struct screenSize{
 	int width;
 	int height;
