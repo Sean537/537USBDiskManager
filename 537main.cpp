@@ -27,15 +27,15 @@ int main(){
     scr.height = GetSystemMetrics(SM_CYSCREEN);  
     
 	initgraph(WINDOW_MAIN_SIZE_WIDTH,WINDOW_MAIN_SIZE_HEIGHT,0);//创建窗口  
+	movewindow(scr.width-WINDOW_MAIN_SIZE_WIDTH,scr.height-WINDOW_MAIN_SIZE_HEIGHT);//设置窗口显示在屏幕右下角 
+    setrendermode(RENDER_MANUAL);//设置手动渲染模式，需要调用delay_fps()/delay_ms()等函数时才会更新窗口，可减少闪烁 
+	ege_enable_aa(true);//开启窗口抗锯齿 
+	
+	setcaption(APP_NAME_L);//设置窗口标题
 	
 	mainwindow.hwnd=getHWnd();//获取主窗口句柄 
 	mainwindow.hinstance=getHInstance();//获取主进程实例句柄 
-	mainwindow.hdc=getHDC();//获取图形接口设备上下文句柄 
-	
-	setcaption(APP_NAME_L);//设置窗口标题 
-	movewindow(scr.width-WINDOW_MAIN_SIZE_WIDTH+5,scr.height-WINDOW_MAIN_SIZE_HEIGHT);//设置窗口显示在屏幕右下角 
-    setrendermode(RENDER_MANUAL);//设置手动渲染模式，需要调用delay_fps()/delay_ms()等函数时才会更新窗口，可减少闪烁 
-    ege_enable_aa(true);//开启窗口抗锯齿 
+	mainwindow.hdc=getHDC();//获取图形接口设备上下文句柄  
     
     settextjustify(LEFT_TEXT,CENTER_TEXT);//设置文本上下左右居中 
     setbkmode(TRANSPARENT);//设置文本输出带透明背景 
@@ -44,7 +44,7 @@ int main(){
 	PIMAGE FTSLOGO=newimage();
 	if (getimage(FTSLOGO,"./resource/537logo.png")!=grOk) {
     	//读取图片文件失败
-    	file_lost(INFO_IMAGE,"FTSLOGO","./resource/537logo.png");
+    	file_lost(INFO_IMAGE,"FTSLOGO","resource/537logo.png");
 	}
 	putimage(5,5,100,100,FTSLOGO,0,0,743,743);
 	
