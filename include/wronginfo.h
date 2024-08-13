@@ -13,11 +13,13 @@ void get_system_info_failed(){
 	exit(-1);
 }
 
-void file_lost(int FILETYPE,char filename[]){
+void file_lost(int FILETYPE,std::string filename){
 	char content[MAX_PATH]="Wrong info: ";
 	char addcontent[]=" loaded failed. \n\nPlease reinstall the 537 USB Disk Manager or contact a professional for help from the relevant personnel of 537 Studio.";
 	
-	strcat(content,filename);
+	char filename_c[filename.length()];
+	strcpy(filename_c,filename.data());
+	strcat(content,filename_c);
 	strcat(content,addcontent);
 	
 	switch(FILETYPE){

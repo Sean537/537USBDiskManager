@@ -81,9 +81,14 @@ int main(){
 	}
 	putimage(5,5,100,100,FTSLOGO,0,0,743,743);
 	cout<<"Put FTSLOGO to: "<<"x="<<5<<" y="<<5<<" width="<<100<<" height="<<100<<"\n";
-	outtextxy(110,5,DriveLetter);
-	outtextxy(110,25,VolumeName);
-	outtextxy(110,45,FileSystemName);
+	outtextxy(110,15,DriveLetter);
+	outtextxy(110,35,VolumeName);
+	outtextxy(110,55,FileSystemName);
+	char space[MAX_PATH]={};
+	strcpy(space,FreeSpaceStr);
+	strcat(space," / ");
+	strcat(space,TotalSpaceStr);
+	outtextxy(110,75,space);
 	//outtextrect(110,50,200,30,"This is a test. Just show the ege text out.");
 	
 	delimage(FTSLOGO); 
