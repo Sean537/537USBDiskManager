@@ -16,6 +16,7 @@ Copyright(C)537 Studio.2024.All rights reserved.
 #include <shellapi.h> 
 #include "include/graphics.h"
 #include "include/ege/sys_edit.h" 
+#include "include/Gif.h"
 #include "537UDM.h"
 #include "include/main_window.h"
 #include "include/wronginfo.h"  
@@ -200,7 +201,7 @@ int main(){
 	for(int i=0;i<=100;i++){
 		setfillcolor(EGERGBA(0,122,255,i));
 		ege_fillrect(0,200,400,200);
-		Sleep(20);
+		delay_ms(20);
 	}
 	sys_edit editBox;
 	editBox.create(1);						//创建，false表示单行，true表示多行
@@ -216,6 +217,20 @@ int main(){
 	//outtextrect(110,50,200,30,"This is a test. Just show the ege text out.");
 	
 	delimage(FTSLOGO); 
+	
+	
+	Gif gif(L"resource/loader1.gif");
+	gif.setPos(30,150);
+	gif.setSize(48,48);
+
+	//控制台输出Gif图像信息
+	gif.info();
+	gif.play();
+
+	for (; is_run(); delay_fps(60)) {
+		gif.draw();
+	}
+	
 	
     /*
 	setbkcolor();//背景色 
