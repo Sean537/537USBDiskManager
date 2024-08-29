@@ -26,33 +26,42 @@ using namespace std;
 
 
 int main(){
-	GetDPI();
-	EnableHighDPI();
-	fShowConsoleWindow;
-	if(GetDeviceInfo()!=0){
+	fShowConsoleWindow;//显示命令行窗口 
+	
+	if(GetDeviceInfo()!=0){//获取设备信息失败 
 		get_system_info_failed();
 	}
 	
 	// 获取屏幕宽度和高度  
     scr.width = GetSystemMetrics(SM_CXSCREEN);  
-    scr.height = GetSystemMetrics(SM_CYSCREEN);  
     cout<<"Get screen width: "<<scr.width<<"px\n";
+	scr.height = GetSystemMetrics(SM_CYSCREEN);  
     cout<<"Get screen height: "<<scr.height<<"px\n\n";
     
 	initgraph(WINDOW_MAIN_SIZE_WIDTH*dpi,WINDOW_MAIN_SIZE_HEIGHT*dpi,0);//创建窗口  
 	cout<<"Create window\n";
 	
 	taskbar.hwnd=::FindWindow("Shell_TrayWnd","");
+	cout<<"Get taskbar hwnd: "<<taskbar.hwnd<<"\n";
 	::GetWindowRect(taskbar.hwnd,&taskbar.rect);
+	cout<<"Get taskbar rect\n";
 	taskbar.x=taskbar.rect.left;
+	cout<<"Taskbar's x: "<<taskbar.x<<"\n";
 	taskbar.y=taskbar.rect.top;
+	cout<<"Taskbar's y: "<<taskbar.y<<"\n";
 	taskbar.width=taskbar.rect.right-taskbar.rect.left;
+	cout<<"Taskbar's width: "<<taskbar.width<<"\n";
 	taskbar.height=taskbar.rect.bottom-taskbar.rect.top;
+	cout<<"Taskbar's height: "<<taskbar.height<<"\n\n";
 	
 	mainwindow.width=WINDOW_MAIN_SIZE_WIDTH;
+	cout<<"Main window's width: "<<mainwindow.width<<"\n";
 	mainwindow.height=WINDOW_MAIN_SIZE_HEIGHT;
+	cout<<"Main window's height: "<<mainwindow.height<<"\n";
 	mainwindow.x=scr.width-mainwindow.width;
+	cout<<"Main window's x: "<<mainwindow.x<<"\n";
 	mainwindow.y=scr.height-mainwindow.height-taskbar.height;
+	cout<<"Main window's y: "<<mainwindow.y<<"\n\n";
 	
 	setcaption(APP_NAME_L);//设置窗口标题
 	cout<<"Set window title: "<<APP_NAME_L<<"\n";
@@ -62,6 +71,9 @@ int main(){
 	cout<<"Set render mode\n";
     ege_enable_aa(true);//开启窗口抗锯齿 
     cout<<"Enable aa\n\n";
+	
+	GetDPI();//获取系统DPI 
+	EnableHighDPI();//尝试启用更高DPI 
 	
 	mainwindow.hwnd=getHWnd();//获取主窗口句柄 
 	cout<<"Get HWnd: "<<mainwindow.hwnd<<"\n";
@@ -87,24 +99,35 @@ int main(){
 		cout<<"Load FTSLOGO successed.\n";
 	}
 	putimage_withalpha(NULL,FTSLOGO,5,5,100,100,0,0,743,743);
-	cout<<"Put FTSLOGO to: "<<"x="<<5<<" y="<<5<<" width="<<100<<" height="<<100<<"\n";
+	cout<<"Put FTSLOGO to: "<<"x="<<5<<" y="<<5<<" width="<<100<<" height="<<100<<"\n\n";
+	
 	outtextxy(110*dpi,15*dpi,DriveLetter);
+	cout<<"Output Drive Letter\n";
 	outtextxy(110*dpi,35*dpi,VolumeName);
+	cout<<"Output Volume Name\n";
 	outtextxy(110*dpi,55*dpi,FileSystemName);
+	cout<<"Output File System Name\n";
 	char space[MAX_PATH]={};
 	strcpy(space,FreeSpaceStr);
 	strcat(space," / ");
 	strcat(space,TotalSpaceStr);
 	outtextxy(110,75,space);
+	cout<<"Output Drive Letter\n\n";
 	
 	ege_fillrect(0*dpi,200*dpi,400*dpi,200*dpi); 
 	putimage_withalpha(NULL,FTSLOGO,75,250,100,100,0,0,743,743);
+	cout<<"Put FTSLOGO2 to: "<<75<<", "<<250<<"\n\n";
+	
 	Sleep(1000);
+	cout<<"Paused 1 second\n\n";
+	
 	for(int i=0;i<=100;i++){
 		setfillcolor(EGERGBA(0,122,255,i));
+		cout<<"Set fill color: RGBA(0,122,255,"<<i<<")\n";
 		ege_fillrect(0,200,400,200);
 		delay_ms(20);
 	}
+	
 	sys_edit editBox;
 	editBox.create(1);						//创建，false表示单行，true表示多行
 	editBox.setreadonly(false);		//设置输入框允许输入
@@ -115,20 +138,24 @@ int main(){
 	editBox.visible(true);						//设置可见性
 	editBox.settext("");
 	editBox.setfocus();							//设置获取焦点
-	
+	cout<<"\nCreate editbox\n\n";
 	//outtextrect(110,50,200,30,"This is a test. Just show the ege text out.");
 	
 	delimage(FTSLOGO); 
 	
 	
 	Gif gif(L"resource/loader1.gif");
+	cout<<"Load GIF\n";
 	gif.setPos(30,150);
+	cout<<"Set GIF pos: 30,150\n";
 	gif.setSize(48,48);
+	cout<<"Set GIF size: 48,48\n";
 	gif.info();//控制台输出Gif图像信息
 	gif.play();
 
 	for (; is_run(); delay_fps(60)) {
 		gif.draw();
+		cout<<"Draw GIF...\n";
 	}
 	
 	
