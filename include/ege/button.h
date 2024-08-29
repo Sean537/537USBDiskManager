@@ -12,7 +12,7 @@
 #include <algorithm>
 
 #ifdef DEBUG
-#include "ege/label.h"
+#include "label.h"
 #else
 #define logout(msg)
 #endif

@@ -12,7 +12,8 @@ Copyright(C)537 Studio.2024.All rights reserved.
 #include <iostream>
 #include <string> 
 #include <sstream>  
-#include <windows.h>  
+#include <windows.h> 
+#include <shellapi.h> 
 #include "include/graphics.h" 
 #include "537UDM.h"
 #include "include/main_window.h"
@@ -105,10 +106,22 @@ int main(){
 	initgraph(WINDOW_MAIN_SIZE_WIDTH,WINDOW_MAIN_SIZE_HEIGHT,0);//创建窗口  
 	cout<<"Create window\n";
 	
+	taskbar.hwnd=::FindWindow("Shell_TrayWnd","");
+	::GetWindowRect(taskbar.hwnd,&taskbar.rect);
+	taskbar.x=taskbar.rect.left;
+	taskbar.y=taskbar.rect.top;
+	taskbar.width=taskbar.rect.right-taskbar.rect.left;
+	taskbar.height=taskbar.rect.bottom-taskbar.rect.top;
+	
+	mainwindow.width=WINDOW_MAIN_SIZE_WIDTH;
+	mainwindow.height=WINDOW_MAIN_SIZE_HEIGHT;
+	mainwindow.x=scr.width-mainwindow.width;
+	mainwindow.y=scr.height-mainwindow.height-taskbar.height;
+	
 	setcaption(APP_NAME_L);//设置窗口标题
 	cout<<"Set window title: "<<APP_NAME_L<<"\n";
-	movewindow(scr.width-WINDOW_MAIN_SIZE_WIDTH+5,scr.height-WINDOW_MAIN_SIZE_HEIGHT-30);//设置窗口显示在屏幕右下角 
-    cout<<"Move window to: "<<scr.width-WINDOW_MAIN_SIZE_WIDTH+5<<", "<<scr.height-WINDOW_MAIN_SIZE_HEIGHT-30<<"\n";
+	movewindow(mainwindow.x,mainwindow.y);//设置窗口显示在屏幕右下角 
+    cout<<"Move window to: "<<mainwindow.x<<", "<<mainwindow.y<<"\n";
 	setrendermode(RENDER_MANUAL);//设置手动渲染模式，需要调用delay_fps()/delay_ms()等函数时才会更新窗口，可减少闪烁 
 	cout<<"Set render mode\n";
     ege_enable_aa(true);//开启窗口抗锯齿 
@@ -126,6 +139,7 @@ int main(){
     setbkmode(TRANSPARENT);//设置文本输出带透明背景 
     cout<<"Set background mode: "<<TRANSPARENT<<"\n";
     setcolor(EGERGBA(255,255,255,100));//前景色
+    setfillcolor(EGERGB(1,182,19));
     cout<<"Set color: "<<255<<", "<<255<<", "<<255<<", "<<100<<"\n\n";
     
 	PIMAGE FTSLOGO=newimage();
@@ -136,7 +150,7 @@ int main(){
 	}else{
 		cout<<"Load FTSLOGO successed.\n";
 	}
-	putimage(5,5,100,100,FTSLOGO,0,0,743,743);
+	putimage_withalpha(NULL,FTSLOGO,5,5,100,100,0,0,743,743);
 	cout<<"Put FTSLOGO to: "<<"x="<<5<<" y="<<5<<" width="<<100<<" height="<<100<<"\n";
 	outtextxy(110,15,DriveLetter);
 	outtextxy(110,35,VolumeName);
@@ -146,6 +160,16 @@ int main(){
 	strcat(space," / ");
 	strcat(space,TotalSpaceStr);
 	outtextxy(110,75,space);
+	
+	ege_fillrect(0,200,400,200); 
+	putimage_withalpha(NULL,FTSLOGO,75,250,100,100,0,0,743,743);
+	Sleep(1000);
+	for(int i=0;i<=100;i++){
+		setfillcolor(EGERGBA(0,122,255,i));
+		ege_fillrect(0,200,400,200);
+		Sleep(20);
+	}
+	
 	//outtextrect(110,50,200,30,"This is a test. Just show the ege text out.");
 	
 	delimage(FTSLOGO); 
@@ -159,7 +183,6 @@ int main(){
 	ege_setalpha();//设置统一透明度 
     */
 	getch;//等待用户输入 
-
     closegraph();//关闭绘图窗口 
     return 0;
 }

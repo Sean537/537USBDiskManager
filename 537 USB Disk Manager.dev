@@ -11,7 +11,7 @@ ResourceIncludes=./resource
 MakeIncludes=
 Compiler=
 CppCompiler=-DDEBUG_@@_
-Linker=-lgraphics64  -lgdiplus -luuid -lmsimg32 -lgdi32 -limm32 -lole32 -loleaut32 -lwinmm_@@__@@_
+Linker=-lgraphics -lgdiplus -luuid -lmsimg32 -lgdi32 -limm32 -lole32 -loleaut32 -lwinmm_@@__@@_
 IsCpp=1
 Icon=537 USB Disk Manager.ico
 ExeOutput=
@@ -27,8 +27,8 @@ CommandLine=
 Folders=include,include/ege,resource
 IncludeVersionInfo=1
 SupportXPThemes=0
-CompilerSet=1
-CompilerSettings=00000000c0000000001000000
+CompilerSet=0
+CompilerSettings=00000000c0000000000000000
 UnitCount=16
 
 [VersionInfo]

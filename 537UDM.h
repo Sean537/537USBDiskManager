@@ -36,6 +36,11 @@ struct WindowInfo{
 	HWND hwnd;//窗口句柄 
 	HINSTANCE hinstance;//主进程实例句柄
 	HDC hdc;//图形设备上下文句柄
-}mainwindow;
+	RECT rect;//窗口矩形
+	int x;
+	int y;
+	int width;
+	int height; 
+}mainwindow,taskbar;
 
 
