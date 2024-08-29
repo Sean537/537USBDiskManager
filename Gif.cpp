@@ -1,6 +1,14 @@
+/*
+537 USB Disk Manager
+Version 1.0 Beta
+
+gif.cpp
+
+Copyright (C) 537 Studio. 2024. All rights reserved.
+*/
 #include "include/graphics.h"
 #include <stdio.h>
-#include "include/Gif.h"
+#include "include/gif.h"
 
 //¹¹Ôìº¯Êý
 Gif::Gif(const WCHAR* gifFileName, HDC hdc)

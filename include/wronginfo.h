@@ -1,39 +1,20 @@
-#include <windows.h>
-#include <iostream>
-#include <cstring>
-#include <string>
-#include "ege.h"
+/*
+537 USB Disk Manager
+Version 1.0 Beta
+
+wronginfo.h
+
+Copyright (C) 537 Studio. 2024. All rights reserved.
+*/
+#ifndef WRONG_INFO_PROCESS
+#define WRONG_INFO_PROCESS
 
 #define INFO_FILE 0
 #define INFO_IMAGE 1
 #define INFO_MEDIA 2
 
-void get_system_info_failed(){
-	MessageBox(getHWnd(),"Failed to obtain the necessary system information.\n\nPlease check your system environment or contact 537 Studio for assistance.","Get necessary system info failed.",MB_OK+16);
-	exit(-1);
-}
+#include <string>
+void get_system_info_failed();
+void file_lost(int FILETYPE,std::string filename);
 
-void file_lost(int FILETYPE,std::string filename){
-	char content[MAX_PATH]="Wrong info: ";
-	char addcontent[]=" loaded failed. \n\nPlease reinstall the 537 USB Disk Manager or contact a professional for help from the relevant personnel of 537 Studio.";
-	
-	char filename_c[filename.length()];
-	strcpy(filename_c,filename.data());
-	strcat(content,filename_c);
-	strcat(content,addcontent);
-	
-	switch(FILETYPE){
-		case INFO_IMAGE:
-			MessageBox(getHWnd(),content,"Load the image file failed.",MB_OK+16);
-			exit(-1);
-			break;
-		case INFO_MEDIA:
-			MessageBox(getHWnd(),content,"Load the media file failed.",MB_OK+16);
-			exit(-1);
-			break;
-		default:
-			MessageBox(getHWnd(),content,"Load the file failed.",MB_OK+16);
-			exit(-1);
-			break;
-	}
-}
+#endif

@@ -1,3 +1,11 @@
+/*
+537 USB Disk Manager
+Version 1.0 Beta
+
+gif.h
+
+Copyright (C) 537 Studio. 2024. All rights reserved.
+*/
 #ifndef _EGEUTIL_GIF_H_
 #define _EGEUTIL_GIF_H_
 

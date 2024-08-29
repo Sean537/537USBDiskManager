@@ -4,7 +4,7 @@ Version 1.0 Beta
 
 537UDM.h
 
-Copyright(C)537 Studio.2024.All rights reserved.
+Copyright (C) 537 Studio. 2024. All rights reserved.
 */
 
 #define APP_NAME_L "537 USB Disk Manager"
@@ -43,4 +43,13 @@ struct WindowInfo{
 	int height; 
 }mainwindow,taskbar;
 
+#ifdef DEBUG
+	#define ShowConsoleWindow AllocConsole();	\
+							freopen("CONOUT$", "w", stdout);	\
+							SetConsoleTitle("537UDM - Debug");
+	#define getch getch();
+#else
+	#define ShowConsoleWindow
+	#define getch
+#endif
 

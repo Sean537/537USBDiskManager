@@ -4,7 +4,7 @@ Version 1.0 Beta
 
 resource.h
 
-Copyright(C)537 Studio.2024.All rights reserved.
+Copyright (C) 537 Studio. 2024. All rights reserved.
 */
 
 #define IDI_ICON_537UDM		100

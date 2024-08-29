@@ -4,7 +4,7 @@ Version 1.0 Beta
 
 537main.cpp
 
-Copyright(C)537 Studio.2024.All rights reserved.
+Copyright (C) 537 Studio. 2024. All rights reserved.
 */
 
 //EGE库API文档：https://xege.org/manual/api/index.htm
@@ -18,18 +18,9 @@ Copyright(C)537 Studio.2024.All rights reserved.
 #include "include/ege/sys_edit.h" 
 #include "include/Gif.h"
 #include "537UDM.h"
-#include "include/main_window.h"
 #include "include/wronginfo.h"  
 
-#ifdef DEBUG
-	#define ShowConsoleWindow AllocConsole();	\
-							freopen("CONOUT$", "w", stdout);	\
-							SetConsoleTitle("537UDM - Debug");
-	#define getch getch();
-#else
-	#define ShowConsoleWindow
-	#define getch
-#endif
+
 using namespace std;
 
 // 辅助函数，用于将ULLONG转换为更易读的格式  
@@ -222,9 +213,7 @@ int main(){
 	Gif gif(L"resource/loader1.gif");
 	gif.setPos(30,150);
 	gif.setSize(48,48);
-
-	//控制台输出Gif图像信息
-	gif.info();
+	gif.info();//控制台输出Gif图像信息
 	gif.play();
 
 	for (; is_run(); delay_fps(60)) {
