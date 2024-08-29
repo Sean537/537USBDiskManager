@@ -265,8 +265,10 @@ void Gif::info() const
 	int frameCnt = getFrameCount();
 	printf("FPS: %d\n", getFrameCount());
 	printf("The delay time of the frame:\n");
+	/*
 	for (int i = 0; i < frameCnt; i++)
 		printf("Frame%3d:%4d ms\n", i, getDelayTime(i));
+	*/
 }
 
 //¶ÁÈ¡Í¼Ïñ

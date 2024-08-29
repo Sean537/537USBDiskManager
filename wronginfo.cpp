@@ -15,11 +15,13 @@ Copyright (C) 537 Studio. 2024. All rights reserved.
 
 
 void get_system_info_failed(){
+	std::cout<<"Show \"get system info failed\" messagebox\n";
 	MessageBox(getHWnd(),"Failed to obtain the necessary system information.\n\nPlease check your system environment or contact 537 Studio for assistance.","Get necessary system info failed.",MB_OK+16);
 	exit(-1);
 }
 
 void file_lost(int FILETYPE,std::string filename){
+	std::cout<<"Show \"file load failed\" messagebox\n";
 	char content[MAX_PATH]="Wrong info: ";
 	char addcontent[]=" loaded failed. \n\nPlease reinstall the 537 USB Disk Manager or contact a professional for help from the relevant personnel of 537 Studio.";
 	
