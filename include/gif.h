@@ -6,8 +6,8 @@ gif.h
 
 Copyright (C) 537 Studio. 2024. All rights reserved.
 */
-#ifndef _EGEUTIL_GIF_H_
-#define _EGEUTIL_GIF_H_
+#ifndef _FTSUDM_GIF_H_
+#define _FTSUDM_GIF_H_
 
 #include <time.h>
 #include <gdiplus.h>

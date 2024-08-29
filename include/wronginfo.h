@@ -6,8 +6,8 @@ wronginfo.h
 
 Copyright (C) 537 Studio. 2024. All rights reserved.
 */
-#ifndef WRONG_INFO_PROCESS
-#define WRONG_INFO_PROCESS
+#ifndef _FTSUDM_WRONGINFO_H_
+#define _FTSUDM_WRONGINFO_H_
 
 #define INFO_FILE 0
 #define INFO_IMAGE 1
