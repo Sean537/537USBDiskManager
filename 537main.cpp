@@ -21,6 +21,8 @@ Copyright (C) 537 Studio. 2024. All rights reserved.
 #include "include/wronginfo.h"
 #include "include/deviceinfo.h"
 #include "include/dpi.h"
+#include "include/file.h"
+#include "resource.h"
 
 using namespace std;
 
@@ -155,11 +157,21 @@ int main(){
 	cout<<"Set GIF size: 48,48\n";
 	gif.info();//控制台输出Gif图像信息
 	gif.play();
-
-	for (int i=0;i<=100;i++,delay_fps(60)) {
+	cout<<"Draw GIF...\n\n";
+	for(int i=0;i<=100;i++,delay_fps(60)) {
 		gif.draw();
-		cout<<"Draw GIF...\n";
+		
 	}
+	
+	string directoryPath="."; // 表示当前目录
+    vector<string> exeFiles;
+    // 扫描当前目录及其所有子目录
+    cout<<"Scanning EXE files...\n";
+	ScanDirectoryForExe(directoryPath, exeFiles);
+    // 打印所有找到的.exe文件路径
+    for(const auto& file:exeFiles){
+        std::cout << file << std::endl;
+    }
     /*
 	setbkcolor();//背景色 
     setbkcolor_f();//清屏背景色

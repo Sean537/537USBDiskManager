@@ -28,7 +28,7 @@ Folders=include,include/ege,resource
 IncludeVersionInfo=1
 SupportXPThemes=0
 CompilerSet=0
-CompilerSettings=00000000c0000000000000000
+CompilerSettings=00000000c0000000001000000
 UnitCount=22
 
 [VersionInfo]
