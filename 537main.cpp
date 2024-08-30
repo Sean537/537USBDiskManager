@@ -38,35 +38,36 @@ int main(){
 	scr.height = GetSystemMetrics(SM_CYSCREEN);  
     cout<<"Get screen height: "<<scr.height<<"px\n\n";
     
-	initgraph(WINDOW_MAIN_SIZE_WIDTH*dpi,WINDOW_MAIN_SIZE_HEIGHT*dpi,0);//创建窗口  
-	cout<<"Create window\n";
 	
-	taskbar.hwnd=::FindWindow("Shell_TrayWnd","");
+	
+	taskbar.hwnd=::FindWindow("Shell_TrayWnd","");//获取任务栏hwnd信息 
 	cout<<"Get taskbar hwnd: "<<taskbar.hwnd<<"\n";
-	::GetWindowRect(taskbar.hwnd,&taskbar.rect);
+	::GetWindowRect(taskbar.hwnd,&taskbar.rect);//获取任务栏窗口rect信息 
 	cout<<"Get taskbar rect\n";
-	taskbar.x=taskbar.rect.left;
+	taskbar.x=taskbar.rect.left;//计算任务栏窗口x坐标 
 	cout<<"Taskbar's x: "<<taskbar.x<<"\n";
-	taskbar.y=taskbar.rect.top;
+	taskbar.y=taskbar.rect.top;//计算任务栏窗口y坐标 
 	cout<<"Taskbar's y: "<<taskbar.y<<"\n";
-	taskbar.width=taskbar.rect.right-taskbar.rect.left;
+	taskbar.width=taskbar.rect.right-taskbar.rect.left;//计算任务栏窗口宽度 
 	cout<<"Taskbar's width: "<<taskbar.width<<"\n";
-	taskbar.height=taskbar.rect.bottom-taskbar.rect.top;
+	taskbar.height=taskbar.rect.bottom-taskbar.rect.top;//计算任务栏窗口高度 
 	cout<<"Taskbar's height: "<<taskbar.height<<"\n\n";
 	
-	mainwindow.width=WINDOW_MAIN_SIZE_WIDTH;
+	mainwindow.width=WINDOW_MAIN_SIZE_WIDTH;//主窗口宽度 
 	cout<<"Main window's width: "<<mainwindow.width<<"\n";
-	mainwindow.height=WINDOW_MAIN_SIZE_HEIGHT;
+	mainwindow.height=WINDOW_MAIN_SIZE_HEIGHT;//主窗口高度 
 	cout<<"Main window's height: "<<mainwindow.height<<"\n";
-	mainwindow.x=scr.width-mainwindow.width;
+	mainwindow.x=scr.width-mainwindow.width;//主窗口x坐标 
 	cout<<"Main window's x: "<<mainwindow.x<<"\n";
-	mainwindow.y=scr.height-mainwindow.height-taskbar.height;
+	mainwindow.y=scr.height-mainwindow.height-taskbar.height;//主窗口y坐标 
 	cout<<"Main window's y: "<<mainwindow.y<<"\n\n";
 	
 	setcaption(APP_NAME_L);//设置窗口标题
 	cout<<"Set window title: "<<APP_NAME_L<<"\n";
-	movewindow(mainwindow.x,mainwindow.y);//设置窗口显示在屏幕右下角 
-    cout<<"Move window to: "<<mainwindow.x<<", "<<mainwindow.y<<"\n";
+	setinitmode(0,mainwindow.x,mainwindow.y);//设置初始化窗口位置在屏幕右下角 
+	cout<<"Set window location: "<<mainwindow.x<<", "<<mainwindow.y<<"\n";
+	initgraph(WINDOW_MAIN_SIZE_WIDTH*dpi,WINDOW_MAIN_SIZE_HEIGHT*dpi,0);//创建窗口  
+	cout<<"Create window\n";
 	setrendermode(RENDER_MANUAL);//设置手动渲染模式，需要调用delay_fps()/delay_ms()等函数时才会更新窗口，可减少闪烁 
 	cout<<"Set render mode\n";
     ege_enable_aa(true);//开启窗口抗锯齿 
@@ -87,8 +88,9 @@ int main(){
     setbkmode(TRANSPARENT);//设置文本输出带透明背景 
     cout<<"Set background mode: "<<TRANSPARENT<<"\n";
     setcolor(EGERGBA(255,255,255,100));//前景色
+    cout<<"Set color: "<<255<<", "<<255<<", "<<255<<", "<<100<<"\n";
     setfillcolor(EGERGB(1,182,19));
-    cout<<"Set color: "<<255<<", "<<255<<", "<<255<<", "<<100<<"\n\n";
+    cout<<"Set fill color: "<<1<<", "<<182<<", "<<19<<"\n\n";
     
 	PIMAGE FTSLOGO=newimage();
 	if(getimage(FTSLOGO,"./resource/537logo.png")!=grOk){
@@ -113,12 +115,13 @@ int main(){
 	strcat(space,TotalSpaceStr);
 	outtextxy(110,75,space);
 	cout<<"Output Drive Letter\n\n";
+	delay_ms(20);
 	
 	ege_fillrect(0*dpi,200*dpi,400*dpi,200*dpi); 
 	putimage_withalpha(NULL,FTSLOGO,75,250,100,100,0,0,743,743);
 	cout<<"Put FTSLOGO2 to: "<<75<<", "<<250<<"\n\n";
 	
-	Sleep(1000);
+	delay_ms(1000);
 	cout<<"Paused 1 second\n\n";
 	
 	for(int i=0;i<=100;i++){
@@ -153,11 +156,10 @@ int main(){
 	gif.info();//控制台输出Gif图像信息
 	gif.play();
 
-	for (; is_run(); delay_fps(60)) {
+	for (int i=0;i<=10000; delay_fps(60)) {
 		gif.draw();
 		cout<<"Draw GIF...\n";
 	}
-	
 	
     /*
 	setbkcolor();//背景色 
