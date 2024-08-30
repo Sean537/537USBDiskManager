@@ -156,11 +156,10 @@ int main(){
 	gif.info();//控制台输出Gif图像信息
 	gif.play();
 
-	for (int i=0;i<=10000; delay_fps(60)) {
+	for (int i=0;i<=100;i++,delay_fps(60)) {
 		gif.draw();
 		cout<<"Draw GIF...\n";
 	}
-	
     /*
 	setbkcolor();//背景色 
     setbkcolor_f();//清屏背景色
