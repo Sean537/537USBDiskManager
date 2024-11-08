@@ -22,10 +22,10 @@ Copyright (C) 537 Studio. 2024. All rights reserved.
 #include "include/deviceinfo.h"
 #include "include/dpi.h"
 #include "include/file.h"
+#include "include/netpp.h"
 #include "resource.h"
 
 using namespace std;
-
 
 int main(){
 	fShowConsoleWindow;//显示命令行窗口 
@@ -33,6 +33,7 @@ int main(){
 	if(GetDeviceInfo()!=0){//获取设备信息失败 
 		get_system_info_failed();
 	}
+	
 	
 	// 获取屏幕宽度和高度  
     scr.width = GetSystemMetrics(SM_CXSCREEN);  
@@ -64,8 +65,8 @@ int main(){
 	mainwindow.y=scr.height-mainwindow.height-taskbar.height;//主窗口y坐标 
 	cout<<"Main window's y: "<<mainwindow.y<<"\n\n";
 	
-	setcaption(APP_NAME_L);//设置窗口标题
-	cout<<"Set window title: "<<APP_NAME_L<<"\n";
+	setcaption(APP_NAME_EN_L);//设置窗口标题
+	cout<<"Set window title: "<<APP_NAME_EN_L<<"\n";
 	setinitmode(0,mainwindow.x,mainwindow.y);//设置初始化窗口位置在屏幕右下角 
 	cout<<"Set window location: "<<mainwindow.x<<", "<<mainwindow.y<<"\n";
 	initgraph(WINDOW_MAIN_SIZE_WIDTH*dpi,WINDOW_MAIN_SIZE_HEIGHT*dpi,0);//创建窗口  
@@ -84,6 +85,7 @@ int main(){
 	cout<<"Get HInstance: "<<mainwindow.hinstance<<"\n";
 	mainwindow.hdc=getHDC();//获取图形接口设备上下文句柄 
 	cout<<"Get HDC: "<<mainwindow.hdc<<"\n\n";
+    
     
     settextjustify(LEFT_TEXT,CENTER_TEXT);//设置文本上下左右居中 
     cout<<"Set text location mode: "<<LEFT_TEXT<<", "<<CENTER_TEXT<<"\n";
@@ -180,9 +182,26 @@ int main(){
 	
 	ege_setalpha();//设置统一透明度 
     */
+    /*
+    setfillcolor(EGERGB(255,255,255));
     while(true){
-    	
+    	if (keystate(key_mouse_l)) { // 鼠标左键按下了
+    		std::cout<<"鼠标左键按下\n";
+			//获取鼠标当前位置坐标，放在变量mouse_x和mouse_y中 
+    		int mouse_x,mouse_y;
+    		mousepos(&mouse_x,&mouse_y);
+    		//在鼠标当前位置画一个半径为100的圆
+    		fillcircle(mouse_x,mouse_y,20);
+		}
+
 	}
+	*/
+	
+	//NewHttpServe();
+	//StartHttpServe(GoString{"https://192.168.1.1:5376",24},256);
+	//ReadFromHttpConn(128,GoString{"https://sean537.github.io/index.html",36});
+	
+	
 	fgetch;//等待用户输入 
     closegraph();//关闭绘图窗口 
     return 0;

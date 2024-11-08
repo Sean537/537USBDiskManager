@@ -7,14 +7,14 @@ Version 1.0 Beta
 Copyright (C) 537 Studio. 2024. All rights reserved.
 */
 
-#define APP_NAME_L "537 USB Disk Manager"
-#define APP_NAME_S "537UDM"
+#define APP_NAME_EN_L "537 USB Disk Manager"
+#define APP_NAME_EN_S "537UDM"
 #define APP_NAME_CN "537U盘管理器"
 
 #define APP_VERSION "1.0 Beta" 
-#define APP_BUILDVERSION "2024.8.12.0"
+#define APP_BUILDVERSION "2024.10.15.0.W10"
 
-#define APP_DEVELOPER "537 Studio"
+#define APP_DEVELOPER_EN "537 Studio"
 #define APP_DEVELOPER_CN "537工作室"
 
 #define WINDOW_MAIN_SIZE_WIDTH 400

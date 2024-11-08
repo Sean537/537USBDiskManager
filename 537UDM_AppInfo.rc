@@ -1,0 +1,37 @@
+/* THIS FILE WILL BE OVERWRITTEN BY DEV-C++ */
+/* DO NOT EDIT! */
+
+#include <windows.h> // include for version info constants
+
+#include "resource.rc"
+
+A ICON "./537UDM.ico"
+
+//
+// TO CHANGE VERSION INFORMATION, EDIT PROJECT OPTIONS...
+//
+1 VERSIONINFO
+FILEVERSION 1,0,0,0
+PRODUCTVERSION 1,0,0,0
+FILETYPE VFT_APP
+{
+  BLOCK "StringFileInfo"
+  {
+    BLOCK "080404E4"
+    {
+      VALUE "CompanyName", "537 Studio"
+      VALUE "FileVersion", "1.0.0.0"
+      VALUE "FileDescription", "537 USB Disk Manager"
+      VALUE "InternalName", "537UDM"
+      VALUE "LegalCopyright", "Copyright (C) 537 Studio. 2024. All rights reserved."
+      VALUE "LegalTrademarks", "Copyright (C) 537 UDM Logo. 2024. All rights reserved."
+      VALUE "OriginalFilename", "FTS USB Disk Manager"
+      VALUE "ProductName", "537 USB Disk Manager"
+      VALUE "ProductVersion", "1.0.0.0"
+    }
+  }
+  BLOCK "VarFileInfo"
+  {
+    VALUE "Translation", 0x0804, 1252
+  }
+}

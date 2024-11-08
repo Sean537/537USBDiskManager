@@ -32,12 +32,14 @@ void EnableHighDPI(){
     std::cout<<"Enable high DPI: "<<dpi<<std::endl;
     HINSTANCE hUser32=LoadLibrary("User32.dll");
     if(hUser32){
-    	std::cout<<"Use User32.dll successful.\n\n";
+    	//开启高分辨率支持成功 
+		std::cout<<"Use User32.dll successful.\n\n";
         typedef BOOL (WINAPI* LPSetProcessDPIAware)(void);
         LPSetProcessDPIAware pSetProcessDPIAware=(LPSetProcessDPIAware)GetProcAddress(hUser32,"SetProcessDPIAware");
         if(pSetProcessDPIAware)pSetProcessDPIAware();
         FreeLibrary(hUser32);
     }else{
+    	//开启高分辨率支持失败 
     	std::cout<<"Use User32.dll failed.\n\n";
 	}
 }
