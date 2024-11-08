@@ -10,7 +10,7 @@ Copyright (C) 537 Studio. 2024. All rights reserved.
 #include <stdio.h>
 #include "include/gif.h"
 
-//¹¹Ôìº¯Êı
+//æ„é€ å‡½æ•°
 Gif::Gif(const WCHAR* gifFileName, HDC hdc)
 {
 	init();
@@ -19,13 +19,13 @@ Gif::Gif(const WCHAR* gifFileName, HDC hdc)
 	bind(hdc);
 }
 
-//¸´ÖÆ¹¹Ôìº¯Êı
+//å¤åˆ¶æ„é€ å‡½æ•°
 Gif::Gif(const Gif& gif)
 {
 	copy(gif);
 }
 
-//Îö¹¹º¯Êı
+//ææ„å‡½æ•°
 Gif::~Gif()
 {
 	delete gifImage;
@@ -33,7 +33,7 @@ Gif::~Gif()
 	delete graphics;
 }
 
-//¸³Öµ²Ù×÷·ûÖØÔØ
+//èµ‹å€¼æ“ä½œç¬¦é‡è½½
 Gif & Gif::operator=(const Gif & gif)
 {
 	if (this == &gif)		return *this;
@@ -46,7 +46,7 @@ Gif & Gif::operator=(const Gif & gif)
 	return *this;
 }
 
-//³õÊ¼»¯
+//åˆå§‹åŒ–
 void Gif::init()
 {
 	x = y = 0;
@@ -60,7 +60,7 @@ void Gif::init()
 	resetPlayState();
 }
 
-//¼ÓÔØÍ¼Ïñ
+//åŠ è½½å›¾åƒ
 void Gif::load(const WCHAR * gifFileName)
 {
 	if (gifImage != NULL)
@@ -70,7 +70,7 @@ void Gif::load(const WCHAR * gifFileName)
 	read();
 }
 
-//°ó¶¨»æÖÆÄ¿±êHDC
+//ç»‘å®šç»˜åˆ¶ç›®æ ‡HDC
 void Gif::bind(HDC hdc)
 {
 	this->hdc = hdc;
@@ -79,14 +79,14 @@ void Gif::bind(HDC hdc)
 	graphics = Gdiplus::Graphics::FromHDC(hdc);
 }
 
-//°ó¶¨»æÖÆÄ¿±êµ½´°¿Ú
+//ç»‘å®šç»˜åˆ¶ç›®æ ‡åˆ°çª—å£
 void Gif::bindWindow()
 {
 	if (hdc != getHDC())
 		bind(getHDC());
 }
 
-//Çå³ı¼ÓÔØµÄÍ¼Ïñ
+//æ¸…é™¤åŠ è½½çš„å›¾åƒ
 void Gif::clear()
 {
 	if (gifImage) {
@@ -101,7 +101,7 @@ void Gif::clear()
 	frameCount = 0;
 }
 
-//»ñÈ¡Í¼ÏñÔ­¿í¶È
+//è·å–å›¾åƒåŸå®½åº¦
 int Gif::getOrginWidth() const
 {
 	if (!gifImage)
@@ -109,7 +109,7 @@ int Gif::getOrginWidth() const
 	return gifImage->GetWidth();
 }
 
-//»ñÈ¡Í¼ÏñÔ­¿í¶È
+//è·å–å›¾åƒåŸå®½åº¦
 int Gif::getOrginHeight() const
 {
 	if (!gifImage)
@@ -123,33 +123,33 @@ void Gif::setPos(int x, int y)
 	this->y = y;
 }
 
-//ÉèÖÃÍ¼Ïñ´óĞ¡
+//è®¾ç½®å›¾åƒå¤§å°
 void Gif::setSize(int width, int height)
 {
 	this->width = width;
 	this->height = height;
 }
 
-//ÔÚµ±Ç°Î»ÖÃ»æÖÆµ±Ç°Ö¡
+//åœ¨å½“å‰ä½ç½®ç»˜åˆ¶å½“å‰å¸§
 void Gif::draw()
 {
 	draw(x, y);
 }
 
-//ÔÚÖ¸¶¨Î»ÖÃ»æÖÆµ±Ç°Ö¡
+//åœ¨æŒ‡å®šä½ç½®ç»˜åˆ¶å½“å‰å¸§
 void Gif::draw(int x, int y)
 {
 	updateTime();
 	drawFrame(curFrame, x, y);
 }
 
-//ÔÚµ±Ç°Î»ÖÃ»æÖÆÖ¸¶¨Ö¡
+//åœ¨å½“å‰ä½ç½®ç»˜åˆ¶æŒ‡å®šå¸§
 void Gif::drawFrame(int frame)
 {
 	drawFrame(frame, x, y);
 }
 
-//ÔÚÖ¸¶¨Î»ÖÃ»æÖÆÖ¸¶¨Ö¡
+//åœ¨æŒ‡å®šä½ç½®ç»˜åˆ¶æŒ‡å®šå¸§
 void Gif::drawFrame(int frame, int x, int y)
 {
 	if (!visible)
@@ -166,7 +166,7 @@ void Gif::drawFrame(int frame, int x, int y)
 	}
 }
 
-//»ñÈ¡GifµÄÖ¸¶¨Ö¡£¬²¢±£´æµ½pimgÖĞ
+//è·å–Gifçš„æŒ‡å®šå¸§ï¼Œå¹¶ä¿å­˜åˆ°pimgä¸­
 void Gif::getimage(PIMAGE pimg, int frame)
 {
 	if (frame < 0 || frameCount <= frame)
@@ -177,7 +177,7 @@ void Gif::getimage(PIMAGE pimg, int frame)
 	if (width != getwidth(pimg) || height != getheight(pimg))
 		resize(pimg, width, height);
 
-	//×Ô¶¨ÒåÍ¼Ïñ»º´æÇø(ARGB£©
+	//è‡ªå®šä¹‰å›¾åƒç¼“å­˜åŒº(ARGBï¼‰
 	Gdiplus::BitmapData bitmapData;
 	bitmapData.Stride = width * 4;
 	int buffSize = width * height * sizeof(color_t);
@@ -185,14 +185,14 @@ void Gif::getimage(PIMAGE pimg, int frame)
 
 	gifImage->SelectActiveFrame(&Gdiplus::FrameDimensionTime, frame);
 	Gdiplus::Rect rect(0, 0, width, height);
-	//ÒÔ32Î»ÏñËØARGB¸ñÊ½¶ÁÈ¡£¬ ×Ô¶¨Òå»º´æÇø
+	//ä»¥32ä½åƒç´ ARGBæ ¼å¼è¯»å–ï¼Œ è‡ªå®šä¹‰ç¼“å­˜åŒº
 
 	gifImage->LockBits(&rect,
 		Gdiplus::ImageLockModeRead | Gdiplus::ImageLockModeUserInputBuf, PixelFormat32bppARGB, &bitmapData);
 	gifImage->UnlockBits(&bitmapData);
 }
 
-//»ñÈ¡Ö¸¶¨Ö¡µÄÑÓÊ±Ê±¼ä
+//è·å–æŒ‡å®šå¸§çš„å»¶æ—¶æ—¶é—´
 int Gif::getDelayTime(int frame) const
 {
 	if (frame < 0 || frameCount <= frame ||
@@ -202,7 +202,7 @@ int Gif::getDelayTime(int frame) const
 		return ((long*)pItem->value)[frame] * 10;
 }
 
-//ÉèÖÃÖ¸¶¨Ö¡µÄÑÓÊ±Ê±¼ä
+//è®¾ç½®æŒ‡å®šå¸§çš„å»¶æ—¶æ—¶é—´
 void Gif::setDelayTime(int frame, long time_ms)
 {
 	if (frame < 0 || frameCount <= frame ||
@@ -212,14 +212,14 @@ void Gif::setDelayTime(int frame, long time_ms)
 		((long*)pItem->value)[frame] = time_ms / 10;
 }
 
-//Í³Ò»ÉèÖÃËùÓĞÖ¡µÄÑÓÊ±Ê±¼ä
+//ç»Ÿä¸€è®¾ç½®æ‰€æœ‰å¸§çš„å»¶æ—¶æ—¶é—´
 void Gif::setAllDelayTime(long time_ms)
 {
 	for (int i = 0; i < frameCount; i++)
 		((long*)pItem->value)[i] = time_ms / 10;
 }
 
-//²¥·Å
+//æ’­æ”¾
 void Gif::play()
 {
 	playing = true;
@@ -233,7 +233,7 @@ void Gif::play()
 		frameBaseTime += sysTime - pauseTime;
 }
 
-//ÔİÍ£
+//æš‚åœ
 void Gif::pause()
 {
 	if (playing) {
@@ -242,13 +242,13 @@ void Gif::pause()
 	}
 }
 
-//²¥·ÅÔİÍ£ÇĞ»»
+//æ’­æ”¾æš‚åœåˆ‡æ¢
 void Gif::toggle()
 {
 	playing ? pause() : play();
 }
 
-//ÖØÖÃ²¥·Å×´Ì¬
+//é‡ç½®æ’­æ”¾çŠ¶æ€
 void Gif::resetPlayState()
 {
 	curFrame = 0;
@@ -257,7 +257,7 @@ void Gif::resetPlayState()
 	playing = false;
 }
 
-//¿ØÖÆÌ¨ÏÔÊ¾GifĞÅÏ¢
+//æ§åˆ¶å°æ˜¾ç¤ºGifä¿¡æ¯
 void Gif::info() const
 {
 	printf("Gif Paint Size: %d x %d\n", getWidth(), getHeight());
@@ -272,27 +272,27 @@ void Gif::info() const
 	*/
 }
 
-//¶ÁÈ¡Í¼Ïñ
+//è¯»å–å›¾åƒ
 void Gif::read()
 {
-	/*¶ÁÈ¡Í¼ÏñĞÅÏ¢*/
+	/*è¯»å–å›¾åƒä¿¡æ¯*/
 	UINT count = gifImage->GetFrameDimensionsCount();
 	GUID* pDimensionIDs = (GUID*)new GUID[count];
 	gifImage->GetFrameDimensionsList(pDimensionIDs, count);
-	//Ö¡Êı
+	//å¸§æ•°
 	frameCount = gifImage->GetFrameCount(&pDimensionIDs[0]);
 	delete[] pDimensionIDs;
 
 	if (pItem != NULL)
 		delete pItem;
 
-	//»ñÈ¡Ã¿Ö¡µÄÑÓÊ±Êı¾İ
+	//è·å–æ¯å¸§çš„å»¶æ—¶æ•°æ®
 	int size = gifImage->GetPropertyItemSize(PropertyTagFrameDelay);
 	pItem = (Gdiplus::PropertyItem*)malloc(size);
 	gifImage->GetPropertyItem(PropertyTagFrameDelay, size, pItem);
 }
 
-//Gif¸´ÖÆ
+//Gifå¤åˆ¶
 void Gif::copy(const Gif& gif)
 {
 	hdc = gif.hdc;
@@ -316,32 +316,32 @@ void Gif::copy(const Gif& gif)
 	memcpy(pItem, gif.pItem, size);
 }
 
-//GifÊ±¼ä¸üĞÂ£¬¼ÆËãµ±Ç°Ö¡
+//Gifæ—¶é—´æ›´æ–°ï¼Œè®¡ç®—å½“å‰å¸§
 void Gif::updateTime()
 {
-	//Í¼ÏñÎª¿Õ£¬»òÕß²»ÊÇ¶¯Í¼£¬»òÕßÃ»ÓĞµ÷ÓÃ¹ıplay()²¥·Å£¨£©
+	//å›¾åƒä¸ºç©ºï¼Œæˆ–è€…ä¸æ˜¯åŠ¨å›¾ï¼Œæˆ–è€…æ²¡æœ‰è°ƒç”¨è¿‡play()æ’­æ”¾ï¼ˆï¼‰
 	if (frameCount <= 1 || frameBaseTime == 0
 		|| (pItem && pItem->length == 0))
 		return;
 
-	//¸ù¾İ²¥·Å»òÔİÍ£¼ÆËãÖ¡²¥·ÅÊ±¼ä
+	//æ ¹æ®æ’­æ”¾æˆ–æš‚åœè®¡ç®—å¸§æ’­æ”¾æ—¶é—´
 	curDelayTime = playing ? (clock() - frameBaseTime) : (pauseTime - frameBaseTime);
 
 	int cnt = 0, totalTime = 0;
 
-	//¼ä¸ôÊ±¼äÌ«³¤¿ÉÄÜ»áÌø¹ı¶àÖ¡
+	//é—´éš”æ—¶é—´å¤ªé•¿å¯èƒ½ä¼šè·³è¿‡å¤šå¸§
 	while (curDelayTime >= frameDelayTime) {
 		curDelayTime -= frameDelayTime;
 		frameBaseTime += frameDelayTime;
 
-		//ÇĞ»»µ½ÏÂÒ»Ö¡
+		//åˆ‡æ¢åˆ°ä¸‹ä¸€å¸§
 		if (++curFrame >= frameCount)
 			curFrame = 0;
 		frameDelayTime = getDelayTime(curFrame);
 
 		totalTime += frameDelayTime;
 
-		//¶àÖ¡Í¼Ïñ£¬µ«×ÜÑÓÊ±Ê±¼äÎª0µÄ´¦Àí
+		//å¤šå¸§å›¾åƒï¼Œä½†æ€»å»¶æ—¶æ—¶é—´ä¸º0çš„å¤„ç†
 		if (++cnt == frameCount && totalTime == 0)
 			break;
 	}

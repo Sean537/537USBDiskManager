@@ -9,13 +9,13 @@ Copyright (C) 537 Studio. 2024. All rights reserved.
 
 #define APP_NAME_EN_L "537 USB Disk Manager"
 #define APP_NAME_EN_S "537UDM"
-#define APP_NAME_CN "537UÅÌ¹ÜÀíÆ÷"
+#define APP_NAME_CN "537Uç›˜ç®¡ç†å™¨"
 
 #define APP_VERSION "1.0 Beta" 
 #define APP_BUILDVERSION "2024.10.15.0.W10"
 
 #define APP_DEVELOPER_EN "537 Studio"
-#define APP_DEVELOPER_CN "537¹¤×÷ÊÒ"
+#define APP_DEVELOPER_CN "537å·¥ä½œå®¤"
 
 #define WINDOW_MAIN_SIZE_WIDTH 400
 #define WINDOW_MAIN_SIZE_HEIGHT 600
@@ -26,10 +26,10 @@ struct screenSize{
 }scr;
 
 struct WindowInfo{
-	HWND hwnd;//´°¿Ú¾ä±ú 
-	HINSTANCE hinstance;//Ö÷½ø³ÌÊµÀı¾ä±ú
-	HDC hdc;//Í¼ĞÎÉè±¸ÉÏÏÂÎÄ¾ä±ú
-	RECT rect;//´°¿Ú¾ØĞÎ
+	HWND hwnd;//çª—å£å¥æŸ„ 
+	HINSTANCE hinstance;//ä¸»è¿›ç¨‹å®ä¾‹å¥æŸ„
+	HDC hdc;//å›¾å½¢è®¾å¤‡ä¸Šä¸‹æ–‡å¥æŸ„
+	RECT rect;//çª—å£çŸ©å½¢
 	int x;
 	int y;
 	int width;

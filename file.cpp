@@ -11,7 +11,7 @@ Copyright (C) 537 Studio. 2024. All rights reserved.
 
 bool IsExeFile(const std::string& fileName){
     size_t dotPos=fileName.rfind('.');
-    if (dotPos==std::string::npos) return false; // Ã»ÓĞµã£¬²»ÊÇÓĞĞ§µÄÎÄ¼şÃû
+    if (dotPos==std::string::npos) return false; // æ²¡æœ‰ç‚¹ï¼Œä¸æ˜¯æœ‰æ•ˆçš„æ–‡ä»¶å
 
     size_t exePos=fileName.rfind(".exe",dotPos);
     return exePos!=std::string::npos && exePos==dotPos;
@@ -23,7 +23,7 @@ void ScanDirectoryForExe(const std::string& directoryPath,std::vector<std::strin
 	
     if(hFind==INVALID_HANDLE_VALUE){
         DWORD dwError = GetLastError();
-        if(dwError!=ERROR_FILE_NOT_FOUND){ // Èç¹û²»ÊÇÃ»ÓĞÕÒµ½ÎÄ¼şµÄ´íÎó£¬´òÓ¡´íÎóĞÅÏ¢
+        if(dwError!=ERROR_FILE_NOT_FOUND){ // å¦‚æœä¸æ˜¯æ²¡æœ‰æ‰¾åˆ°æ–‡ä»¶çš„é”™è¯¯ï¼Œæ‰“å°é”™è¯¯ä¿¡æ¯
             std::cerr<<"FindFirstFile failed with error code: "<<dwError<<std::endl;
         }
         return;
@@ -31,15 +31,15 @@ void ScanDirectoryForExe(const std::string& directoryPath,std::vector<std::strin
 
     do{
         if(strcmp(findFileData.cFileName,".")==0 || strcmp(findFileData.cFileName,"..")==0){
-            continue; // Ìø¹ıµ±Ç°Ä¿Â¼ºÍÉÏ¼¶Ä¿Â¼
+            continue; // è·³è¿‡å½“å‰ç›®å½•å’Œä¸Šçº§ç›®å½•
         }
 
         std::string fullPath=directoryPath+"/"+findFileData.cFileName;
         if((findFileData.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY)!=0){
-            // ÊÇÄ¿Â¼£¬µİ¹éµ÷ÓÃScanDirectoryForExe
+            // æ˜¯ç›®å½•ï¼Œé€’å½’è°ƒç”¨ScanDirectoryForExe
             ScanDirectoryForExe(fullPath, exeFiles);
         }else if(IsExeFile(findFileData.cFileName)){
-            // ÊÇÎÄ¼ş£¬¼ì²éÊÇ·ñÊÇ.exeÎÄ¼ş
+            // æ˜¯æ–‡ä»¶ï¼Œæ£€æŸ¥æ˜¯å¦æ˜¯.exeæ–‡ä»¶
             exeFiles.push_back(fullPath);
         }
     }while(FindNextFile(hFind,&findFileData)!=0);

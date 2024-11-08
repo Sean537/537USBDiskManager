@@ -7,7 +7,7 @@ Version 1.0 Beta
 Copyright (C) 537 Studio. 2024. All rights reserved.
 */
 
-//EGE¿âAPIÎÄµµ£ºhttps://xege.org/manual/api/index.htm
+//EGEåº“APIæ–‡æ¡£ï¼šhttps://xege.org/manual/api/index.htm
 
 #include <iostream>
 #include <string> 
@@ -28,14 +28,14 @@ Copyright (C) 537 Studio. 2024. All rights reserved.
 using namespace std;
 
 int main(){
-	fShowConsoleWindow;//ÏÔÊ¾ÃüÁîĞĞ´°¿Ú 
+	fShowConsoleWindow;//æ˜¾ç¤ºå‘½ä»¤è¡Œçª—å£ 
 	
-	if(GetDeviceInfo()!=0){//»ñÈ¡Éè±¸ĞÅÏ¢Ê§°Ü 
+	if(GetDeviceInfo()!=0){//è·å–è®¾å¤‡ä¿¡æ¯å¤±è´¥ 
 		get_system_info_failed();
 	}
 	
 	
-	// »ñÈ¡ÆÁÄ»¿í¶ÈºÍ¸ß¶È  
+	// è·å–å±å¹•å®½åº¦å’Œé«˜åº¦  
     scr.width = GetSystemMetrics(SM_CXSCREEN);  
     cout<<"Get screen width: "<<scr.width<<"px\n";
 	scr.height = GetSystemMetrics(SM_CYSCREEN);  
@@ -43,62 +43,62 @@ int main(){
     
 	
 	
-	taskbar.hwnd=::FindWindow("Shell_TrayWnd","");//»ñÈ¡ÈÎÎñÀ¸hwndĞÅÏ¢ 
+	taskbar.hwnd=::FindWindow("Shell_TrayWnd","");//è·å–ä»»åŠ¡æ hwndä¿¡æ¯ 
 	cout<<"Get taskbar hwnd: "<<taskbar.hwnd<<"\n";
-	::GetWindowRect(taskbar.hwnd,&taskbar.rect);//»ñÈ¡ÈÎÎñÀ¸´°¿ÚrectĞÅÏ¢ 
+	::GetWindowRect(taskbar.hwnd,&taskbar.rect);//è·å–ä»»åŠ¡æ çª—å£rectä¿¡æ¯ 
 	cout<<"Get taskbar rect\n";
-	taskbar.x=taskbar.rect.left;//¼ÆËãÈÎÎñÀ¸´°¿Úx×ø±ê 
+	taskbar.x=taskbar.rect.left;//è®¡ç®—ä»»åŠ¡æ çª—å£xåæ ‡ 
 	cout<<"Taskbar's x: "<<taskbar.x<<"\n";
-	taskbar.y=taskbar.rect.top;//¼ÆËãÈÎÎñÀ¸´°¿Úy×ø±ê 
+	taskbar.y=taskbar.rect.top;//è®¡ç®—ä»»åŠ¡æ çª—å£yåæ ‡ 
 	cout<<"Taskbar's y: "<<taskbar.y<<"\n";
-	taskbar.width=taskbar.rect.right-taskbar.rect.left;//¼ÆËãÈÎÎñÀ¸´°¿Ú¿í¶È 
+	taskbar.width=taskbar.rect.right-taskbar.rect.left;//è®¡ç®—ä»»åŠ¡æ çª—å£å®½åº¦ 
 	cout<<"Taskbar's width: "<<taskbar.width<<"\n";
-	taskbar.height=taskbar.rect.bottom-taskbar.rect.top;//¼ÆËãÈÎÎñÀ¸´°¿Ú¸ß¶È 
+	taskbar.height=taskbar.rect.bottom-taskbar.rect.top;//è®¡ç®—ä»»åŠ¡æ çª—å£é«˜åº¦ 
 	cout<<"Taskbar's height: "<<taskbar.height<<"\n\n";
 	
-	mainwindow.width=WINDOW_MAIN_SIZE_WIDTH;//Ö÷´°¿Ú¿í¶È 
+	mainwindow.width=WINDOW_MAIN_SIZE_WIDTH;//ä¸»çª—å£å®½åº¦ 
 	cout<<"Main window's width: "<<mainwindow.width<<"\n";
-	mainwindow.height=WINDOW_MAIN_SIZE_HEIGHT;//Ö÷´°¿Ú¸ß¶È 
+	mainwindow.height=WINDOW_MAIN_SIZE_HEIGHT;//ä¸»çª—å£é«˜åº¦ 
 	cout<<"Main window's height: "<<mainwindow.height<<"\n";
-	mainwindow.x=scr.width-mainwindow.width;//Ö÷´°¿Úx×ø±ê 
+	mainwindow.x=scr.width-mainwindow.width;//ä¸»çª—å£xåæ ‡ 
 	cout<<"Main window's x: "<<mainwindow.x<<"\n";
-	mainwindow.y=scr.height-mainwindow.height-taskbar.height;//Ö÷´°¿Úy×ø±ê 
+	mainwindow.y=scr.height-mainwindow.height-taskbar.height;//ä¸»çª—å£yåæ ‡ 
 	cout<<"Main window's y: "<<mainwindow.y<<"\n\n";
 	
-	setcaption(APP_NAME_EN_L);//ÉèÖÃ´°¿Ú±êÌâ
+	setcaption(APP_NAME_EN_L);//è®¾ç½®çª—å£æ ‡é¢˜
 	cout<<"Set window title: "<<APP_NAME_EN_L<<"\n";
-	setinitmode(0,mainwindow.x,mainwindow.y);//ÉèÖÃ³õÊ¼»¯´°¿ÚÎ»ÖÃÔÚÆÁÄ»ÓÒÏÂ½Ç 
+	setinitmode(0,mainwindow.x,mainwindow.y);//è®¾ç½®åˆå§‹åŒ–çª—å£ä½ç½®åœ¨å±å¹•å³ä¸‹è§’ 
 	cout<<"Set window location: "<<mainwindow.x<<", "<<mainwindow.y<<"\n";
-	initgraph(WINDOW_MAIN_SIZE_WIDTH*dpi,WINDOW_MAIN_SIZE_HEIGHT*dpi,0);//´´½¨´°¿Ú  
+	initgraph(WINDOW_MAIN_SIZE_WIDTH*dpi,WINDOW_MAIN_SIZE_HEIGHT*dpi,0);//åˆ›å»ºçª—å£  
 	cout<<"Create window\n";
-	setrendermode(RENDER_MANUAL);//ÉèÖÃÊÖ¶¯äÖÈ¾Ä£Ê½£¬ĞèÒªµ÷ÓÃdelay_fps()/delay_ms()µÈº¯ÊıÊ±²Å»á¸üĞÂ´°¿Ú£¬¿É¼õÉÙÉÁË¸ 
+	setrendermode(RENDER_MANUAL);//è®¾ç½®æ‰‹åŠ¨æ¸²æŸ“æ¨¡å¼ï¼Œéœ€è¦è°ƒç”¨delay_fps()/delay_ms()ç­‰å‡½æ•°æ—¶æ‰ä¼šæ›´æ–°çª—å£ï¼Œå¯å‡å°‘é—ªçƒ 
 	cout<<"Set render mode\n";
-    ege_enable_aa(true);//¿ªÆô´°¿Ú¿¹¾â³İ 
+    ege_enable_aa(true);//å¼€å¯çª—å£æŠ—é”¯é½¿ 
     cout<<"Enable aa\n\n";
 	
-	GetDPI();//»ñÈ¡ÏµÍ³DPI 
-	EnableHighDPI();//³¢ÊÔÆôÓÃ¸ü¸ßDPI 
+	GetDPI();//è·å–ç³»ç»ŸDPI 
+	EnableHighDPI();//å°è¯•å¯ç”¨æ›´é«˜DPI 
 	
-	mainwindow.hwnd=getHWnd();//»ñÈ¡Ö÷´°¿Ú¾ä±ú 
+	mainwindow.hwnd=getHWnd();//è·å–ä¸»çª—å£å¥æŸ„ 
 	cout<<"Get HWnd: "<<mainwindow.hwnd<<"\n";
-	mainwindow.hinstance=getHInstance();//»ñÈ¡Ö÷½ø³ÌÊµÀı¾ä±ú
+	mainwindow.hinstance=getHInstance();//è·å–ä¸»è¿›ç¨‹å®ä¾‹å¥æŸ„
 	cout<<"Get HInstance: "<<mainwindow.hinstance<<"\n";
-	mainwindow.hdc=getHDC();//»ñÈ¡Í¼ĞÎ½Ó¿ÚÉè±¸ÉÏÏÂÎÄ¾ä±ú 
+	mainwindow.hdc=getHDC();//è·å–å›¾å½¢æ¥å£è®¾å¤‡ä¸Šä¸‹æ–‡å¥æŸ„ 
 	cout<<"Get HDC: "<<mainwindow.hdc<<"\n\n";
     
     
-    settextjustify(LEFT_TEXT,CENTER_TEXT);//ÉèÖÃÎÄ±¾ÉÏÏÂ×óÓÒ¾ÓÖĞ 
+    settextjustify(LEFT_TEXT,CENTER_TEXT);//è®¾ç½®æ–‡æœ¬ä¸Šä¸‹å·¦å³å±…ä¸­ 
     cout<<"Set text location mode: "<<LEFT_TEXT<<", "<<CENTER_TEXT<<"\n";
-    setbkmode(TRANSPARENT);//ÉèÖÃÎÄ±¾Êä³ö´øÍ¸Ã÷±³¾° 
+    setbkmode(TRANSPARENT);//è®¾ç½®æ–‡æœ¬è¾“å‡ºå¸¦é€æ˜èƒŒæ™¯ 
     cout<<"Set background mode: "<<TRANSPARENT<<"\n";
-    setcolor(EGERGBA(255,255,255,100));//Ç°¾°É«
+    setcolor(EGERGBA(255,255,255,100));//å‰æ™¯è‰²
     cout<<"Set color: "<<255<<", "<<255<<", "<<255<<", "<<100<<"\n";
     setfillcolor(EGERGB(1,182,19));
     cout<<"Set fill color: "<<1<<", "<<182<<", "<<19<<"\n\n";
     
 	PIMAGE FTSLOGO=newimage();
 	if(getimage(FTSLOGO,"./resource/537logo.png")!=grOk){
-    	//¶ÁÈ¡Í¼Æ¬ÎÄ¼şÊ§°Ü
+    	//è¯»å–å›¾ç‰‡æ–‡ä»¶å¤±è´¥
     	cout<<"Load FTSLOGO failed.\n";
     	file_lost(INFO_IMAGE,"FTSLOGO");
 	}else{
@@ -136,15 +136,15 @@ int main(){
 	}
 	
 	sys_edit editBox;
-	editBox.create(1);						//´´½¨£¬false±íÊ¾µ¥ĞĞ£¬true±íÊ¾¶àĞĞ
-	editBox.setreadonly(false);		//ÉèÖÃÊäÈë¿òÔÊĞíÊäÈë
-	editBox.move(100, 100);						//ÉèÖÃÎ»ÖÃ
-	editBox.size(200,100);	//ÉèÖÃ³ß´ç
-	editBox.setmaxlen(20);						//ÉèÖÃÔÊĞíÊäÈëµÄ×Ö·ûÊı
-	editBox.setfont(20*dpi,8*dpi,"Î¢ÈíÑÅºÚ");
-	editBox.visible(true);						//ÉèÖÃ¿É¼ûĞÔ
+	editBox.create(1);						//åˆ›å»ºï¼Œfalseè¡¨ç¤ºå•è¡Œï¼Œtrueè¡¨ç¤ºå¤šè¡Œ
+	editBox.setreadonly(false);		//è®¾ç½®è¾“å…¥æ¡†å…è®¸è¾“å…¥
+	editBox.move(100, 100);						//è®¾ç½®ä½ç½®
+	editBox.size(200,100);	//è®¾ç½®å°ºå¯¸
+	editBox.setmaxlen(20);						//è®¾ç½®å…è®¸è¾“å…¥çš„å­—ç¬¦æ•°
+	editBox.setfont(20*dpi,8*dpi,"å¾®è½¯é›…é»‘");
+	editBox.visible(true);						//è®¾ç½®å¯è§æ€§
 	editBox.settext("");
-	editBox.setfocus();							//ÉèÖÃ»ñÈ¡½¹µã
+	editBox.setfocus();							//è®¾ç½®è·å–ç„¦ç‚¹
 	cout<<"\nCreate editbox\n\n";
 	//outtextrect(110,50,200,30,"This is a test. Just show the ege text out.");
 	
@@ -157,7 +157,7 @@ int main(){
 	cout<<"Set GIF pos: 30,150\n";
 	gif.setSize(48,48);
 	cout<<"Set GIF size: 48,48\n";
-	gif.info();//¿ØÖÆÌ¨Êä³öGifÍ¼ÏñĞÅÏ¢
+	gif.info();//æ§åˆ¶å°è¾“å‡ºGifå›¾åƒä¿¡æ¯
 	gif.play();
 	cout<<"Draw GIF...\n\n";
 	for(int i=0;i<=100;i++,delay_fps(60)) {
@@ -165,32 +165,32 @@ int main(){
 		
 	}
 	
-	string directoryPath="."; // ±íÊ¾µ±Ç°Ä¿Â¼
+	string directoryPath="."; // è¡¨ç¤ºå½“å‰ç›®å½•
     vector<string> exeFiles;
-    // É¨Ãèµ±Ç°Ä¿Â¼¼°ÆäËùÓĞ×ÓÄ¿Â¼
+    // æ‰«æå½“å‰ç›®å½•åŠå…¶æ‰€æœ‰å­ç›®å½•
     cout<<"Scanning EXE files...\n";
 	ScanDirectoryForExe(directoryPath, exeFiles);
-    // ´òÓ¡ËùÓĞÕÒµ½µÄ.exeÎÄ¼şÂ·¾¶
+    // æ‰“å°æ‰€æœ‰æ‰¾åˆ°çš„.exeæ–‡ä»¶è·¯å¾„
     for(const auto& file:exeFiles){
         std::cout << file << std::endl;
     }
     /*
-	setbkcolor();//±³¾°É« 
-    setbkcolor_f();//ÇåÆÁ±³¾°É«
-	setfillcolor();//Ìî³äÉ«
-	setfontbkcolor();//ÎÄ±¾±³¾°É«
+	setbkcolor();//èƒŒæ™¯è‰² 
+    setbkcolor_f();//æ¸…å±èƒŒæ™¯è‰²
+	setfillcolor();//å¡«å……è‰²
+	setfontbkcolor();//æ–‡æœ¬èƒŒæ™¯è‰²
 	
-	ege_setalpha();//ÉèÖÃÍ³Ò»Í¸Ã÷¶È 
+	ege_setalpha();//è®¾ç½®ç»Ÿä¸€é€æ˜åº¦ 
     */
     /*
     setfillcolor(EGERGB(255,255,255));
     while(true){
-    	if (keystate(key_mouse_l)) { // Êó±ê×ó¼ü°´ÏÂÁË
-    		std::cout<<"Êó±ê×ó¼ü°´ÏÂ\n";
-			//»ñÈ¡Êó±êµ±Ç°Î»ÖÃ×ø±ê£¬·ÅÔÚ±äÁ¿mouse_xºÍmouse_yÖĞ 
+    	if (keystate(key_mouse_l)) { // é¼ æ ‡å·¦é”®æŒ‰ä¸‹äº†
+    		std::cout<<"é¼ æ ‡å·¦é”®æŒ‰ä¸‹\n";
+			//è·å–é¼ æ ‡å½“å‰ä½ç½®åæ ‡ï¼Œæ”¾åœ¨å˜é‡mouse_xå’Œmouse_yä¸­ 
     		int mouse_x,mouse_y;
     		mousepos(&mouse_x,&mouse_y);
-    		//ÔÚÊó±êµ±Ç°Î»ÖÃ»­Ò»¸ö°ë¾¶Îª100µÄÔ²
+    		//åœ¨é¼ æ ‡å½“å‰ä½ç½®ç”»ä¸€ä¸ªåŠå¾„ä¸º100çš„åœ†
     		fillcircle(mouse_x,mouse_y,20);
 		}
 
@@ -202,7 +202,7 @@ int main(){
 	//ReadFromHttpConn(128,GoString{"https://sean537.github.io/index.html",36});
 	
 	
-	fgetch;//µÈ´ıÓÃ»§ÊäÈë 
-    closegraph();//¹Ø±Õ»æÍ¼´°¿Ú 
+	fgetch;//ç­‰å¾…ç”¨æˆ·è¾“å…¥ 
+    closegraph();//å…³é—­ç»˜å›¾çª—å£ 
     return 0;
 }

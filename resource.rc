@@ -8,7 +8,7 @@ Copyright(C)537 Studio.2024.All rights reserved.
 */
 #include "537UDM.h"
 
-// �ַ�����Դ  
+// 字符串资源  
 /*
 STRINGTABLE  
 BEGIN  
@@ -16,23 +16,23 @@ BEGIN
 END  
 */
   
-// ͼ����Դ  
+// 图标资源  
 IDI_ICON_537UDM        ICON    "resource/537UDM.ico"  
 IDI_ICON_537LOGO       ICON    "resource/537logo.ico"  
   
-// λͼ��Դ  
+// 位图资源  
 BITMAP_537LOGO          BITMAP    "resource/537logo.png" 
 BITMAP_WARNING			BITMAP    "resource/warning.png" 
   
-// �Ի�����Դ  
+// 对话框资源  
 /*
 IDD_DIALOG1 DIALOG DISCARDABLE  0, 0, 300, 100  
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU  
 CAPTION "My Dialog"  
 FONT 8, "MS Shell Dlg", 400, 0, 0x0  
 BEGIN  
-    // ���ﶨ��Ի����ڵĿؼ����簴ť���ı����  
-    // ���磺  
+    // 这里定义对话框内的控件，如按钮、文本框等  
+    // 例如：  
     // BUTTON      "OK", IDOK, 20, 20, 50, 14  
     // ...  
 END

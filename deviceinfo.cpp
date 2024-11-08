@@ -14,7 +14,7 @@ char VolumeName[MAX_PATH]={};
 char FileSystemName[MAX_PATH]={};  
 char TotalSpaceStr[256]={};
 char FreeSpaceStr[256]={}; 
-// ¸¨Öúº¯Êı£¬ÓÃÓÚ½«ULLONG×ª»»Îª¸üÒ×¶ÁµÄ¸ñÊ½  
+// è¾…åŠ©å‡½æ•°ï¼Œç”¨äºå°†ULLONGè½¬æ¢ä¸ºæ›´æ˜“è¯»çš„æ ¼å¼  
 void ConvertSizeToString(ULONGLONG size,char* buffer,size_t bufferSize){  
     if(size<1024){
         snprintf(buffer,bufferSize,"%llu B",size);  
@@ -25,47 +25,47 @@ void ConvertSizeToString(ULONGLONG size,char* buffer,size_t bufferSize){
     }else{  
         snprintf(buffer,bufferSize,"%.2f GB",static_cast<double>(size)/(1024.0*1024.0*1024.0));  
     }  
-    buffer[bufferSize-1]='\0'; // È·±£×Ö·û´®ÒÔnull½áÎ²  
+    buffer[bufferSize-1]='\0'; // ç¡®ä¿å­—ç¬¦ä¸²ä»¥nullç»“å°¾  
 }  
   
 int GetDeviceInfo(){  
     char modulePath[MAX_PATH]={0};  
     char driveRoot[3]={0};  
   
-    // »ñÈ¡µ±Ç°¿ÉÖ´ĞĞÎÄ¼şµÄÍêÕûÂ·¾¶  
+    // è·å–å½“å‰å¯æ‰§è¡Œæ–‡ä»¶çš„å®Œæ•´è·¯å¾„  
     if(GetModuleFileNameA(NULL,modulePath,MAX_PATH)==0){ 
         std::cout<<"GetModuleFileNameA failed!"<<std::endl;  
         return 1;
     } 
   	
-    // ´ÓÍêÕûÂ·¾¶ÖĞÌáÈ¡ÅÌ·û  
+    // ä»å®Œæ•´è·¯å¾„ä¸­æå–ç›˜ç¬¦  
     driveRoot[0]=toupper(modulePath[0]);  
     driveRoot[1]=':';
     driveRoot[2]='/';
     driveRoot[3]='\0';  
   
-    // ½«ÅÌ·û¸´ÖÆµ½È«¾Ö±äÁ¿ÖĞ  
+    // å°†ç›˜ç¬¦å¤åˆ¶åˆ°å…¨å±€å˜é‡ä¸­  
     strncpy(DriveLetter, driveRoot, 4);  
-    DriveLetter[2] = '\0'; // È·±£DriveLetterÒÔnull½áÎ²  
+    DriveLetter[2] = '\0'; // ç¡®ä¿DriveLetterä»¥nullç»“å°¾  
   
-    // »ñÈ¡¾íĞÅÏ¢  
+    // è·å–å·ä¿¡æ¯  
     if (!GetVolumeInformationA(driveRoot,VolumeName,MAX_PATH,NULL,NULL,NULL,FileSystemName,MAX_PATH)) {  
         std::cout<<"GetVolumeInformationA failed!"<<std::endl;  
         return 2;  
     }  
   
-    // »ñÈ¡´ÅÅÌ¿Õ¼äĞÅÏ¢  
+    // è·å–ç£ç›˜ç©ºé—´ä¿¡æ¯  
     ULARGE_INTEGER totalSpace, freeSpace, totalFreeSpace;  
     if (!GetDiskFreeSpaceExA(driveRoot, &freeSpace, &totalSpace, &totalFreeSpace)) {  
         std::cout<<"GetDiskFreeSpaceExA failed!"<<std::endl;  
         return 3;  
     }  
   
-    // ×ª»»¿Õ¼ä´óĞ¡Îª¸üÒ×¶ÁµÄ¸ñÊ½  
+    // è½¬æ¢ç©ºé—´å¤§å°ä¸ºæ›´æ˜“è¯»çš„æ ¼å¼  
     ConvertSizeToString(totalSpace.QuadPart, TotalSpaceStr, sizeof(TotalSpaceStr));  
     ConvertSizeToString(freeSpace.QuadPart, FreeSpaceStr, sizeof(FreeSpaceStr));  
   
-    // Êä³ö½á¹û  
+    // è¾“å‡ºç»“æœ  
     std::cout<<"DriveLetter: "<<DriveLetter<<std::endl;  
     std::cout<<"VolumeName: "<<VolumeName<<std::endl;  
     std::cout<<"FileSystemName: "<<FileSystemName<<std::endl;  
