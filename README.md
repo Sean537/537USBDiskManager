@@ -14,7 +14,7 @@
 
 推荐使用 MinGW 4.9.2 （该编译器也被内置在 Dev-C++ 5.11 里）。
 
-#### Release
+### Release
 
 ```MinGW
 mingw32-make
@@ -26,13 +26,13 @@ mingw32-make
 mingw32-make MODE=RELEASE
 ```
 
-#### Debug
+### Debug
 
 ```MinGW
 mingw32-make MODE=DEBUG
 ```
 
-#### Clean
+### Clean
 
 ```MinGW
 mingw32-make MODE=DEBUG
