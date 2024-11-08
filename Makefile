@@ -1,21 +1,34 @@
 # Project: 537 USB Disk Manager
 # Makefile created by Dev-C++ 5.11, edited by Sean537 in 537 Studio
 
-CPP      = g++.exe -D__DEBUG__
-CC       = gcc.exe -D__DEBUG__
+MODE=RELEASE
+
+ifeq ($(MODE), DEBUG)
+CPP      = g++.exe -DDEBUG
+CC       = gcc.exe -DDEBUG
+LIBS     = -static-libgcc -L"./lib" -mwindows -lgraphics -lgdiplus -luuid -lmsimg32 -lgdi32 -limm32 -lole32 -loleaut32 -lwinmm -lnetpp -g3
+CXXFLAGS = $(CXXINCS) -std=c++11 -g3 -DDEBUG
+CFLAGS   = $(INCS) -std=c++11 -g3
+else
+CPP      = g++.exe
+CC       = gcc.exe
+LIBS     = -static-libgcc -L"./lib" -mwindows -lgraphics -lgdiplus -luuid -lmsimg32 -lgdi32 -limm32 -lole32 -loleaut32 -lwinmm -lnetpp
+CXXFLAGS = $(CXXINCS) -std=c++11
+CFLAGS   = $(INCS) -std=c++11
+endif
+
 WINDRES  = windres.exe
 RES      = 537UDM_AppInfo.res
 OBJ      = 537main.o gif.o wronginfo.o deviceinfo.o dpi.o file.o $(RES)
 LINKOBJ  = 537main.o gif.o wronginfo.o deviceinfo.o dpi.o file.o $(RES)
-LIBS     = -static-libgcc -L"./lib" -mwindows -lgraphics -lgdiplus -luuid -lmsimg32 -lgdi32 -limm32 -lole32 -loleaut32 -lwinmm -lnetpp -g3
 BIN      = 537UDM.exe
-CXXFLAGS = $(CXXINCS) -std=c++11 -g3 -DDEBUG
-CFLAGS   = $(INCS) -std=c++11 -g3
 RM       = rm.exe -f
 
 .PHONY: all all-before all-after clean clean-custom
 
 all: all-before $(BIN) all-after
+	@echo Starting 537UDM...
+	@${BIN}
 
 clean: clean-custom
 	${RM} $(OBJ) $(BIN)
@@ -24,8 +37,6 @@ clean: clean-custom
 $(BIN): $(OBJ)
 	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
 	@echo Link object to exe.
-	@echo Starting 537UDM.
-	@$(BIN)
 
 537main.o: 537main.cpp
 	$(CPP) -c 537main.cpp -o 537main.o $(CXXFLAGS)

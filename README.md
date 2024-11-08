@@ -15,19 +15,7 @@
 #### Release
 
 ```G++
-#生成OBJ文件
-g++ -c 537main.cpp -o 537main.o -std=c++11
-g++ -c gif.cpp -o gif.o -std=c++11
-g++ -c wronginfo.cpp -o wronginfo.o -std=c++11
-g++ -c deviceinfo.cpp -o deviceinfo.o -std=c++11
-g++ -c dpi.cpp -o dpi.o -std=c++11
-g++ -c file.cpp -o file.o -std=c++11
-
-#生成资源文件
-windres -i 537_USB_Disk_Manager_private.rc --input-format=rc -o 537_USB_Disk_Manager_private.res -O coff  --include-dir ./resource
-
-#整合成可执行文件
-g++ 537main.o gif.o wronginfo.o deviceinfo.o dpi.o file.o 537_USB_Disk_Manager_private.res -o "537 USB Disk Manager.exe" -static-libgcc -L"./lib" -mwindows -lgraphics -lgdiplus -luuid -lmsimg32 -lgdi32 -limm32 -lole32 -loleaut32 -lwinmm
+mingw32-make all
 ```
 
 #### Debug
