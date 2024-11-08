@@ -3,7 +3,6 @@
 *.res
 *.layout
 gmon.out
-Makefile.win
 
 # Other files and folders
 
