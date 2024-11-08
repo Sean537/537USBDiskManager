@@ -3,16 +3,17 @@
 
 MODE=RELEASE
 
+
 ifeq ($(MODE), DEBUG)
 CPP      = g++.exe -DDEBUG
 CC       = gcc.exe -DDEBUG
-LIBS     = -static-libgcc -L"./lib" -mwindows -lgraphics -lgdiplus -luuid -lmsimg32 -lgdi32 -limm32 -lole32 -loleaut32 -lwinmm -lnetpp -g3
+LIBS     = -static-libgcc -L"./lib" -mwindows -lgraphics_4.9.2 -lgdiplus -luuid -lmsimg32 -lgdi32 -limm32 -lole32 -loleaut32 -lwinmm -lnetpp -g3
 CXXFLAGS = $(CXXINCS) -std=c++11 -g3 -DDEBUG
 CFLAGS   = $(INCS) -std=c++11 -g3
 else
 CPP      = g++.exe
 CC       = gcc.exe
-LIBS     = -static-libgcc -L"./lib" -mwindows -lgraphics -lgdiplus -luuid -lmsimg32 -lgdi32 -limm32 -lole32 -loleaut32 -lwinmm -lnetpp
+LIBS     = -static-libgcc -L"./lib" -mwindows -lgraphics_4.9.2 -lgdiplus -luuid -lmsimg32 -lgdi32 -limm32 -lole32 -loleaut32 -lwinmm -lnetpp
 CXXFLAGS = $(CXXINCS) -std=c++11
 CFLAGS   = $(INCS) -std=c++11
 endif
