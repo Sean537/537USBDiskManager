@@ -34,7 +34,7 @@ int GetDeviceInfo(){
   
     // 获取当前可执行文件的完整路径  
     if(GetModuleFileNameA(NULL,modulePath,MAX_PATH)==0){ 
-        std::cout<<"GetModuleFileNameA failed!"<<std::endl;  
+        std::wcout<<L"GetModuleFileNameA failed!"<<std::endl;  
         return 1;
     } 
   	
@@ -50,14 +50,14 @@ int GetDeviceInfo(){
   
     // 获取卷信息  
     if (!GetVolumeInformationA(driveRoot,VolumeName,MAX_PATH,NULL,NULL,NULL,FileSystemName,MAX_PATH)) {  
-        std::cout<<"GetVolumeInformationA failed!"<<std::endl;  
+        std::wcout<<L"GetVolumeInformationA failed!"<<std::endl;  
         return 2;  
     }  
   
     // 获取磁盘空间信息  
     ULARGE_INTEGER totalSpace, freeSpace, totalFreeSpace;  
     if (!GetDiskFreeSpaceExA(driveRoot, &freeSpace, &totalSpace, &totalFreeSpace)) {  
-        std::cout<<"GetDiskFreeSpaceExA failed!"<<std::endl;  
+        std::wcout<<L"GetDiskFreeSpaceExA failed!"<<std::endl;  
         return 3;  
     }  
   
@@ -66,11 +66,11 @@ int GetDeviceInfo(){
     ConvertSizeToString(freeSpace.QuadPart, FreeSpaceStr, sizeof(FreeSpaceStr));  
   
     // 输出结果  
-    std::cout<<"DriveLetter: "<<DriveLetter<<std::endl;  
-    std::cout<<"VolumeName: "<<VolumeName<<std::endl;  
-    std::cout<<"FileSystemName: "<<FileSystemName<<std::endl;  
-    std::cout<<"TotalSpace: "<<TotalSpaceStr<<std::endl;  
-    std::cout<<"FreeSpace: "<<FreeSpaceStr<<std::endl<<std::endl;  
+    std::wcout<<L"DriveLetter: "<<DriveLetter<<std::endl;  
+    std::wcout<<L"VolumeName: "<<VolumeName<<std::endl;  
+    std::wcout<<L"FileSystemName: "<<FileSystemName<<std::endl;  
+    std::wcout<<L"TotalSpace: "<<TotalSpaceStr<<std::endl;  
+    std::wcout<<L"FreeSpace: "<<FreeSpaceStr<<std::endl<<std::endl;  
     
 	return 0;
 }

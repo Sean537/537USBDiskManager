@@ -15,6 +15,6 @@ Copyright (C) 537 Studio. 2024. All rights reserved.
 
 #include <string>
 void get_system_info_failed();
-void file_lost(int FILETYPE,std::string filename);
+void file_lost(int FILETYPE,std::wstring filename);
 
 #endif

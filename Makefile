@@ -3,7 +3,6 @@
 
 MODE=RELEASE
 
-
 ifeq ($(MODE), DEBUG)
 CPP      = g++.exe -DDEBUG
 CC       = gcc.exe -DDEBUG
