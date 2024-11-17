@@ -7,13 +7,13 @@ MODE=RELEASE
 ifeq ($(MODE), DEBUG)
 CPP      = g++.exe -DDEBUG
 CC       = gcc.exe -DDEBUG
-LIBS     = -static-libgcc -L"./lib" -mwindows -lgraphics_4.9.2 -lgdiplus -luuid -lmsimg32 -lgdi32 -limm32 -lole32 -loleaut32 -lwinmm -lnetpp -g3
+LIBS     = -static-libgcc -L"./lib" -mwindows -lgraphics_8.1.0 -lgdiplus -luuid -lmsimg32 -lgdi32 -limm32 -lole32 -loleaut32 -lwinmm -lnetpp -g3
 CXXFLAGS = $(CXXINCS) -std=c++11 -g3 -DDEBUG
 CFLAGS   = $(INCS) -std=c++11 -g3
 else
 CPP      = g++.exe
 CC       = gcc.exe
-LIBS     = -static-libgcc -L"./lib" -mwindows -lgraphics_4.9.2 -lgdiplus -luuid -lmsimg32 -lgdi32 -limm32 -lole32 -loleaut32 -lwinmm -lnetpp
+LIBS     = -static-libgcc -L"./lib" -mwindows -lgraphics_8.1.0 -lgdiplus -luuid -lmsimg32 -lgdi32 -limm32 -lole32 -loleaut32 -lwinmm -lnetpp
 CXXFLAGS = $(CXXINCS) -std=c++11
 CFLAGS   = $(INCS) -std=c++11
 endif
@@ -23,7 +23,7 @@ RES      = 537UDM_AppInfo.res
 OBJ      = 537main.o gif.o wronginfo.o deviceinfo.o dpi.o file.o $(RES)
 LINKOBJ  = 537main.o gif.o wronginfo.o deviceinfo.o dpi.o file.o $(RES)
 BIN      = 537UDM.exe
-RM       = rm.exe -f
+RM       = del
 
 .PHONY: all all-before all-after clean clean-custom
 
@@ -37,7 +37,7 @@ clean: clean-custom
 
 $(BIN): $(OBJ)
 	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
-	@echo Link object to exe.
+	@echo Link objects to exe.
 
 537main.o: 537main.cpp
 	$(CPP) -c 537main.cpp -o 537main.o $(CXXFLAGS)
