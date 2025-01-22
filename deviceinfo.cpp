@@ -45,7 +45,7 @@ int GetDeviceInfo(){
     driveRoot[3]='\0';  
   
     // 将盘符复制到全局变量中  
-    strncpy(DriveLetter, driveRoot, 4);  
+    strcpy(DriveLetter, driveRoot);  
     DriveLetter[2] = '\0'; // 确保DriveLetter以null结尾  
   
     // 获取卷信息  
