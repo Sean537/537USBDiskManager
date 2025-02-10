@@ -6,14 +6,14 @@ wronginfo.cpp
 
 Copyright (C) 537 Studio. 2024. All rights reserved.
 */
-#include "include/wronginfo.h"
+#include <wronginfo.h>
 #include <windows.h>
 #include <iostream>
 #include <cstring>
 #include <string>
 #include <cwchar>
 
-#include "include/graphics.h"
+#include <graphics.h>
 
 
 void get_system_info_failed(){

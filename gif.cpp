@@ -6,9 +6,9 @@ gif.cpp
 
 Copyright (C) 537 Studio. 2024. All rights reserved.
 */
-#include "include/graphics.h"
+#include <graphics.h>
 #include <stdio.h>
-#include "include/gif.h"
+#include <gif.h>
 
 //构造函数
 Gif::Gif(const WCHAR* gifFileName, HDC hdc)

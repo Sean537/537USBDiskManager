@@ -15,14 +15,14 @@ Copyright (C) 537 Studio. 2024. All rights reserved.
 #include <windows.h> 
 #include <shellapi.h> 
 #include "537UDM.h"
-#include "include/graphics.h"
-#include "include/ege/sys_edit.h" 
-#include "include/gif.h"
-#include "include/wronginfo.h"
-#include "include/deviceinfo.h"
-#include "include/dpi.h"
-#include "include/file.h"
-#include "include/netpp.h"
+#include <graphics.h>
+#include <ege/sys_edit.h>
+#include <gif.h>
+#include <wronginfo.h>
+#include <deviceinfo.h>
+#include <dpi.h>
+#include <file.h>
+#include <netpp.h>
 #include "resource.h"
 
 using namespace std;

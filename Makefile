@@ -17,6 +17,8 @@ CXXFLAGS = $(CXXINCS) -std=c++11
 CFLAGS   = $(INCS) -std=c++11
 endif
 
+INCS     = -I"./include"
+CXXINCS  = -I"./include"
 WINDRES  = windres.exe
 RES      = 537UDM_AppInfo.res
 OBJ      = 537main.o gif.o wronginfo.o deviceinfo.o dpi.o file.o $(RES)
